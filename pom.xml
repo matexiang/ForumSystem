@@ -8,10 +8,10 @@
 		<version>2.7.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
+	<groupId>com.lxy</groupId>
+	<artifactId>forum</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
+	<name>forum</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
@@ -28,19 +28,41 @@
 	</scm>
 	<properties>
 		<java.version>17</java.version>
+
 		<maven.compiler.source>${java.version}</maven.compiler.source>
+
 		<maven.compiler.target>${java.version}</maven.compiler.target>
+
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
 		<mysql-connector.version>8.0.11</mysql-connector.version>
+
 		<mybatis-starter.version>2.3.0</mybatis-starter.version>
+
 		<druid-starter.version>1.2.16</druid-starter.version>
 
+
 		<mybatis-generator-plugin-version>1.4.2</mybatis-generator-plugin-version>
+
+		<springfox-boot-starter.version>3.0.0</springfox-boot-starter.version>
 
 
 
 	</properties>
 	<dependencies>
+		<!-- API⽂档⽣成，基于swagger2 -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>${springfox-boot-starter.version}</version>
+		</dependency>
+
+		<!-- SpringBoot健康监控 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
 		<!-- mysql 连接依赖-->
 		<dependency>
 			<groupId>mysql</groupId>
