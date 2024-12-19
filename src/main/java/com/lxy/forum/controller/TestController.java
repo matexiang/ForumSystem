@@ -14,5 +14,8 @@ public class TestController {
         throw new Exception("异常");
     }
 
-  
+    @RequestMapping("appexception")
+    public AppResult testApplicationException() {
+        throw new ApplicationException("ApplicationException异常");
+    }
 }
