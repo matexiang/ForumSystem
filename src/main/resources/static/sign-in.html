@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="./dist/css/tabler.min.css?1674944402" rel="stylesheet"/>
+    <link rel="stylesheet" href="./dist/css/jquery.toast.css">
+    <link rel="stylesheet" href="style.css" />
+    <title>论坛交流平台</title>
+  </head>
+  <body>
+    <div class="login-card">
+      <div class="column">
+        <h1>登陆</h1>
+        <p>欢迎来到论坛交流平台，请输入账号密码！</p>
+        <form>
+          <div class="form-item">
+            <input type="text" class="form-element" placeholder="游客登录用户名请输入: 1" autocomplete="off" name="username" id="username" >
+          </div>
+          <div class="form-item">
+            <input type="password" class="form-element" placeholder="游客登录密码请输入: 1"  autocomplete="off" name="password" id="password">
+          </div>
+          <div class="form-checkbox-item">
+            <input type="checkbox" id="rememberMe" checked />
+            <label for="rememberMe">记住我</label>
+          </div>
+          <div class="flex">
+            <button id ="submit" type="button">登录</button>
+           <a href="#"></a>
+          </div>
+          <p style="margin-top: 3rem; margin-bottom: 1.5rem">
+
+            联系作者:</p>
+          <div class="social-buttons">
+            <a href="https://matex.blog.csdn.net" class="CSDN">
+              <i class="bi bi-wechat">CSDN</i>
+            </a>
+            <a href="https://gitee.com/matexiang" class="gitte">
+              <i class="bi bi-twitter">gitte</i>
+            </a>
+            <a href="https://github.com/matexiang" class="github">
+              <i class="bi bi-github">github</i>
+            </a>
+          </div>
+        </form>
+      </div>
+      <div class="column">
+        <h2>论坛交流平台欢迎您登陆！</h2>
+        <p>如果你没有账号，你想要现在注册一个吗？</p>
+        <a href="sign-up.html">注册</a>
+      </div>
+    </div>
+  </body>
+  <script src="./dist/js/jquery-3.6.3.min.js"></script>
+  <script src="./dist/js/tabler.min.js"></script>
+  <script src="./dist/js/jquery.toast.js"></script>
+  <script>
+    $(function () {
+      // 获取控件
+      // 用户名
+      let usernameEl = $('#username');
+      let passwordEl = $('#password');
+      // 登录校验
+      $('#submit').click(function () {
+        let checkForm = true;
+        // 校验用户名
+        if (!usernameEl.val()) {
+          usernameEl.addClass('is-invalid');
+          checkForm = false;
+        }
+        // 校验密码
+        if (!passwordEl.val()) {
+          passwordEl.addClass('is-invalid');
+          checkForm = false;
+        }
+
+        // 根据判断结果提交表单
+        if (!checkForm) {
+          return false;
+        }
+
+        // 构造数据
+        let postData = {
+          username : usernameEl.val(),
+          password : passwordEl.val()
+        };
+        
+        // 发送AJAX请求，成功后跳转到index.html
+        $.ajax({
+          url: 'user/login',
+      type : 'post',
+      contentType : 'application/x-www-form-urlencoded',
+      data : postData,
+      success: function(respData){
+        if(respData.code == 0){
+        
+          location.assign('/index.html');
+        }else{
+          $.toast({
+            heading: '警告',
+            text: respData.message,
+          icon: 'warning'
+          });
+
+        }
+
+      },
+      error: function(){
+        $.toast({
+            heading: '错误',
+            text: '访问出错,请联系作者',
+          icon: 'error'
+        });
+
+      }
+             
+    
+        });
+      });
+
+      //
+      // 表单元单独检验
+      $('#username, #password').on('blur', function () {
+        if ($(this).val()) {
+          $(this).removeClass('is-invalid');
+          $(this).addClass('is-valid');
+        } else {
+          $(this).removeClass('is-valid');
+          $(this).addClass('is-invalid');
+        }
+      });
+
+      // 显示密码
+      $('#password_a').click(function () {
+        if(passwordEl.attr('type') == 'password') {
+          passwordEl.attr('type', 'text');
+        } else {
+          passwordEl.attr('type', 'password');
+        }
+      });
+    });
+  </script>
+
+</html>
