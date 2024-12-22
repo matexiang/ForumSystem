@@ -51,9 +51,10 @@ public class AppResult<T> {
     }
 
     public static AppResult failed(ResultCode resultCode){
-        return new AppResult(ResultCode.FAILED.getCode(), ResultCode.FAILED.getMessage());
+        return new AppResult(resultCode.getCode(), resultCode.getMessage());
 
     }
+
 
 
 
