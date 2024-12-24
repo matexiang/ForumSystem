@@ -36,7 +36,7 @@
       articleCount, isAdmin, remark, 
       state, deleteState, createTime, 
       updateTime)
-    values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
       #{nickname,jdbcType=VARCHAR}, #{phoneNum,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{gender,jdbcType=TINYINT}, #{salt,jdbcType=VARCHAR}, #{avatarUrl,jdbcType=VARCHAR}, 
       #{articleCount,jdbcType=INTEGER}, #{isAdmin,jdbcType=TINYINT}, #{remark,jdbcType=VARCHAR}, 
