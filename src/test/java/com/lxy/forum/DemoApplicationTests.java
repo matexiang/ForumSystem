@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.UUID;
+
 @SpringBootTest
 class DemoApplicationTests {
 
@@ -22,6 +24,10 @@ class DemoApplicationTests {
 		User user = userMapper.selectByPrimaryKey(1l);
 		System.out.println(user);
 
+	}
+	@Test
+	void testUUId(){
+		System.out.println(UUID.randomUUID().toString());
 	}
 
 }
