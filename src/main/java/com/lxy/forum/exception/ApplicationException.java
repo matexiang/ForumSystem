@@ -9,6 +9,10 @@ public class ApplicationException extends RuntimeException{
     //在异常中持有一个错误信息
     protected AppResult errorResult;
 
+    public ApplicationException (AppResult errorResult) {
+        super(errorResult.getMessage());
+        this.errorResult = errorResult;
+    }
 
     public ApplicationException(String message) {
         super(message);
@@ -21,4 +25,9 @@ public class ApplicationException extends RuntimeException{
     public ApplicationException(Throwable cause) {
         super(cause);
     }
+
+    public AppResult getErrorResult() {
+        return errorResult;
+    }
+
 }
