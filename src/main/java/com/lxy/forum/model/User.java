@@ -30,16 +30,17 @@ public class User {
     @ApiModelProperty("头像地址")
     private String avatarUrl;
 
+    @ApiModelProperty("发帖数量")
     private Integer articleCount;
-
+    @ApiModelProperty("是否管理员")
     private Byte isAdmin;
-
+    @ApiModelProperty("个人简介")
     private String remark;
-
+    @ApiModelProperty("用户状态")
     private Byte state;
 
     private Byte deleteState;
-
+    @ApiModelProperty("注册日期")
     private Date createTime;
 
     private Date updateTime;
