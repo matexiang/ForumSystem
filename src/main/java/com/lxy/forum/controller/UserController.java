@@ -84,8 +84,29 @@ public class UserController {
     }
 
     @ApiOperation("获取用户信息")
-    @RequestMapping("info")
-    public AppResult<User> getUserInfo(HttpServletRequest request,Long id){
+    @RequestMapping("/info")
+    public AppResult<User> getUserInfo(HttpServletRequest request,
+                                       @ApiParam("用户id") @RequestParam(value = "id",required = false) Long id){
+        User user = new User();
+        //1.如果id为空,从session中获取当前登录的用户信息
+        if(id == null){
+            HttpSession session = request.getSession(false);
+            //判断session和用户信息是否有效
+            if(session == null || session.getAttribute(AppConfig.USER_SESSION) == null){
+                //用户未登录,返回错误信息
+                return AppResult.failed(ResultCode.FAILED_FORBIDDEN);
+            }
+            //从session中获取当前登录的用户信息
+            user = (User) session.getAttribute(AppConfig.USER_SESSION);
+
+        }else {
+            //2.如果id不为空,从数据库中按id查询用户信息
+            user = userService.selectById(id);
+        }
+
+
+
+
 
 
         return null;
