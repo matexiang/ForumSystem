@@ -87,6 +87,7 @@ public class UserController {
     @RequestMapping("/info")
     public AppResult<User> getUserInfo(HttpServletRequest request,
                                        @ApiParam("用户id") @RequestParam(value = "id",required = false) Long id){
+        //定义返回的User对象
         User user = new User();
         //1.如果id为空,从session中获取当前登录的用户信息
         if(id == null){
@@ -104,11 +105,11 @@ public class UserController {
             user = userService.selectById(id);
         }
 
+        if(user == null){
+            return AppResult.failed(ResultCode.FAILED_USER_NOT_EXISTS);
+        }
 
-
-
-
-
-        return null;
+        //返回正常结果
+        return AppResult.success(user);
     }
 }
