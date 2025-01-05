@@ -14,5 +14,6 @@ public interface IUserService {
     //处理用户登录
     User login (String username, String password);
 
+    //根据id查询用户信息
     User selectById(Long id);
 }
