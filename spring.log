@@ -1,495 +1,377 @@
-12-21 09:36:36  INFO 29508 --- [main] com.lxy.forum.DemoApplication            : Starting DemoApplication using Java 17.0.9 on uuuujkgh5666 with PID 29508 (E:\gitHubProject\ForumSystem\target\classes started by 27970 in E:\gitHubProject\ForumSystem)
-12-21 09:36:36 DEBUG 29508 --- [main] com.lxy.forum.DemoApplication            : Running with Spring Boot v2.7.6, Spring v5.3.24
-12-21 09:36:36  INFO 29508 --- [main] com.lxy.forum.DemoApplication            : No active profile set, falling back to 1 default profile: "default"
-12-21 09:36:39  INFO 29508 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-12-21 09:36:39  INFO 29508 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-12-21 09:36:39  INFO 29508 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
-12-21 09:36:40  INFO 29508 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-12-21 09:36:40  INFO 29508 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3170 ms
-12-21 09:36:40  INFO 29508 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-12-21 09:36:40  INFO 29508 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-12-21 09:36:41  INFO 29508 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-12-21 09:36:42  INFO 29508 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-12-21 09:36:42  INFO 29508 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-12-21 09:36:42  INFO 29508 --- [main] com.lxy.forum.DemoApplication            : Started DemoApplication in 7.131 seconds (JVM running for 8.024)
-12-21 09:37:25  INFO 29508 --- [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-12-21 09:37:25  INFO 29508 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-12-21 09:37:25  INFO 29508 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-12-21 09:37:40 DEBUG 29508 --- [http-nio-8081-exec-9] c.l.f.dao.UserMapper.selectByUserName    : ==>  Preparing: select id, username, password, nickname, phoneNum, email, gender, salt, avatarUrl, articleCount, isAdmin, remark, state, deleteState, createTime, updateTime from t_user where deleteState = 0 and username = ?
-12-21 09:37:40 DEBUG 29508 --- [http-nio-8081-exec-9] c.l.f.dao.UserMapper.selectByUserName    : ==> Parameters: 李向阳(String)
-12-21 09:37:40 DEBUG 29508 --- [http-nio-8081-exec-9] c.l.f.dao.UserMapper.selectByUserName    : <==      Total: 1
-12-21 09:37:40  INFO 29508 --- [http-nio-8081-exec-9] c.l.forum.service.impl.UserServiceImpl   : code: 1101;message: ⽤⼾已存在
-12-21 09:37:40 ERROR 29508 --- [http-nio-8081-exec-9] c.l.f.exception.GlobalExceptionHandler   : ⽤⼾已存在
-12-21 09:37:52 DEBUG 29508 --- [http-nio-8081-exec-10] c.l.f.dao.UserMapper.selectByUserName    : ==>  Preparing: select id, username, password, nickname, phoneNum, email, gender, salt, avatarUrl, articleCount, isAdmin, remark, state, deleteState, createTime, updateTime from t_user where deleteState = 0 and username = ?
-12-21 09:37:52 DEBUG 29508 --- [http-nio-8081-exec-10] c.l.f.dao.UserMapper.selectByUserName    : ==> Parameters: lxy(String)
-12-21 09:37:52 DEBUG 29508 --- [http-nio-8081-exec-10] c.l.f.dao.UserMapper.selectByUserName    : <==      Total: 0
-12-21 09:37:52 DEBUG 29508 --- [http-nio-8081-exec-10] c.l.f.dao.UserMapper.insertSelective     : ==>  Preparing: insert into t_user ( username, password, nickname, gender, salt, articleCount, isAdmin, state, deleteState, createTime, updateTime ) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
-12-21 09:37:52 DEBUG 29508 --- [http-nio-8081-exec-10] c.l.f.dao.UserMapper.insertSelective     : ==> Parameters: lxy(String), 62b9b382869a5427acf4282c755d6a05(String), 1(String), 2(Byte), 0a5590660db241fcad1b3e4b8361bcc0(String), 0(Integer), 0(Byte), 0(Byte), 0(Byte), 2024-12-21 09:37:52.787(Timestamp), 2024-12-21 09:37:52.787(Timestamp)
-12-21 09:37:52 DEBUG 29508 --- [http-nio-8081-exec-10] c.l.f.dao.UserMapper.insertSelective     : <==    Updates: 1
-12-21 09:37:52  INFO 29508 --- [http-nio-8081-exec-10] c.l.forum.service.impl.UserServiceImpl   : 新增用户成功: username = lxy
-12-21 09:39:30  INFO 29508 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-12-21 09:39:30  INFO 29508 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-12-21 09:39:33  INFO 14940 --- [main] com.lxy.forum.DemoApplication            : Starting DemoApplication using Java 17.0.9 on uuuujkgh5666 with PID 14940 (E:\gitHubProject\ForumSystem\target\classes started by 27970 in E:\gitHubProject\ForumSystem)
-12-21 09:39:33 DEBUG 14940 --- [main] com.lxy.forum.DemoApplication            : Running with Spring Boot v2.7.6, Spring v5.3.24
-12-21 09:39:33  INFO 14940 --- [main] com.lxy.forum.DemoApplication            : No active profile set, falling back to 1 default profile: "default"
-12-21 09:39:35  INFO 14940 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-12-21 09:39:35  INFO 14940 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-12-21 09:39:35  INFO 14940 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
-12-21 09:39:35  INFO 14940 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-12-21 09:39:35  INFO 14940 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1886 ms
-12-21 09:39:35  INFO 14940 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-12-21 09:39:35  INFO 14940 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-12-21 09:39:36  INFO 14940 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-12-21 09:39:37  INFO 14940 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-12-21 09:39:37  INFO 14940 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-12-21 09:39:37  INFO 14940 --- [main] com.lxy.forum.DemoApplication            : Started DemoApplication in 4.205 seconds (JVM running for 4.598)
-12-21 09:39:48  INFO 14940 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-12-21 09:39:48  INFO 14940 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-12-21 09:39:48  INFO 14940 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-12-21 09:39:48 DEBUG 14940 --- [http-nio-8081-exec-1] c.l.f.dao.UserMapper.selectByUserName    : ==>  Preparing: select id, username, password, nickname, phoneNum, email, gender, salt, avatarUrl, articleCount, isAdmin, remark, state, deleteState, createTime, updateTime from t_user where deleteState = 0 and username = ?
-12-21 09:39:48 DEBUG 14940 --- [http-nio-8081-exec-1] c.l.f.dao.UserMapper.selectByUserName    : ==> Parameters: lxy(String)
-12-21 09:39:48 DEBUG 14940 --- [http-nio-8081-exec-1] c.l.f.dao.UserMapper.selectByUserName    : <==      Total: 1
-12-21 09:39:48  INFO 14940 --- [http-nio-8081-exec-1] c.l.forum.service.impl.UserServiceImpl   : code: 1101;message: ⽤⼾已存在
-12-21 09:39:48 ERROR 14940 --- [http-nio-8081-exec-1] c.l.f.exception.GlobalExceptionHandler   : ⽤⼾已存在
-12-21 09:40:11 DEBUG 14940 --- [http-nio-8081-exec-2] c.l.f.dao.UserMapper.selectByUserName    : ==>  Preparing: select id, username, password, nickname, phoneNum, email, gender, salt, avatarUrl, articleCount, isAdmin, remark, state, deleteState, createTime, updateTime from t_user where deleteState = 0 and username = ?
-12-21 09:40:11 DEBUG 14940 --- [http-nio-8081-exec-2] c.l.f.dao.UserMapper.selectByUserName    : ==> Parameters: 测试用户(String)
-12-21 09:40:11 DEBUG 14940 --- [http-nio-8081-exec-2] c.l.f.dao.UserMapper.selectByUserName    : <==      Total: 0
-12-21 09:40:11 DEBUG 14940 --- [http-nio-8081-exec-2] c.l.f.dao.UserMapper.insertSelective     : ==>  Preparing: insert into t_user ( username, password, nickname, gender, salt, articleCount, isAdmin, state, deleteState, createTime, updateTime ) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
-12-21 09:40:11 DEBUG 14940 --- [http-nio-8081-exec-2] c.l.f.dao.UserMapper.insertSelective     : ==> Parameters: 测试用户(String), ded04cc3acf91b84f61042c93fc09bc4(String), 测试(String), 2(Byte), ed0410f8cd2c4cee96fa8433c15239af(String), 0(Integer), 0(Byte), 0(Byte), 0(Byte), 2024-12-21 09:40:11.156(Timestamp), 2024-12-21 09:40:11.156(Timestamp)
-12-21 09:40:11 DEBUG 14940 --- [http-nio-8081-exec-2] c.l.f.dao.UserMapper.insertSelective     : <==    Updates: 1
-12-21 09:40:11  INFO 14940 --- [http-nio-8081-exec-2] c.l.forum.service.impl.UserServiceImpl   : 新增用户成功: username = 测试用户
-12-21 09:41:27 DEBUG 14940 --- [http-nio-8081-exec-4] c.l.f.dao.UserMapper.selectByUserName    : ==>  Preparing: select id, username, password, nickname, phoneNum, email, gender, salt, avatarUrl, articleCount, isAdmin, remark, state, deleteState, createTime, updateTime from t_user where deleteState = 0 and username = ?
-12-21 09:41:27 DEBUG 14940 --- [http-nio-8081-exec-4] c.l.f.dao.UserMapper.selectByUserName    : ==> Parameters: 测试用户(String)
-12-21 09:41:27 DEBUG 14940 --- [http-nio-8081-exec-4] c.l.f.dao.UserMapper.selectByUserName    : <==      Total: 1
-12-21 09:41:27  INFO 14940 --- [http-nio-8081-exec-4] c.l.forum.service.impl.UserServiceImpl   : code: 1101;message: ⽤⼾已存在
-12-21 09:41:27 ERROR 14940 --- [http-nio-8081-exec-4] c.l.f.exception.GlobalExceptionHandler   : ⽤⼾已存在
-12-21 09:41:34 DEBUG 14940 --- [http-nio-8081-exec-5] c.l.f.dao.UserMapper.selectByUserName    : ==>  Preparing: select id, username, password, nickname, phoneNum, email, gender, salt, avatarUrl, articleCount, isAdmin, remark, state, deleteState, createTime, updateTime from t_user where deleteState = 0 and username = ?
-12-21 09:41:34 DEBUG 14940 --- [http-nio-8081-exec-5] c.l.f.dao.UserMapper.selectByUserName    : ==> Parameters: 测(String)
-12-21 09:41:34 DEBUG 14940 --- [http-nio-8081-exec-5] c.l.f.dao.UserMapper.selectByUserName    : <==      Total: 0
-12-21 09:41:34 DEBUG 14940 --- [http-nio-8081-exec-5] c.l.f.dao.UserMapper.insertSelective     : ==>  Preparing: insert into t_user ( username, password, nickname, gender, salt, articleCount, isAdmin, state, deleteState, createTime, updateTime ) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
-12-21 09:41:34 DEBUG 14940 --- [http-nio-8081-exec-5] c.l.f.dao.UserMapper.insertSelective     : ==> Parameters: 测(String), 4eec4fb3f3fbc3d7662b2c608396c7e0(String), 测试用户(String), 2(Byte), d3b413e882a64826b8dc141adf0ad3e5(String), 0(Integer), 0(Byte), 0(Byte), 0(Byte), 2024-12-21 09:41:34.527(Timestamp), 2024-12-21 09:41:34.527(Timestamp)
-12-21 09:41:34 DEBUG 14940 --- [http-nio-8081-exec-5] c.l.f.dao.UserMapper.insertSelective     : <==    Updates: 1
-12-21 09:41:34  INFO 14940 --- [http-nio-8081-exec-5] c.l.forum.service.impl.UserServiceImpl   : 新增用户成功: username = 测
-12-21 09:47:30  INFO 14940 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-12-21 09:47:30  INFO 14940 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-12-21 09:47:34  INFO 31196 --- [main] com.lxy.forum.DemoApplication            : Starting DemoApplication using Java 17.0.9 on uuuujkgh5666 with PID 31196 (E:\gitHubProject\ForumSystem\target\classes started by 27970 in E:\gitHubProject\ForumSystem)
-12-21 09:47:34 DEBUG 31196 --- [main] com.lxy.forum.DemoApplication            : Running with Spring Boot v2.7.6, Spring v5.3.24
-12-21 09:47:34  INFO 31196 --- [main] com.lxy.forum.DemoApplication            : No active profile set, falling back to 1 default profile: "default"
-12-21 09:47:36  INFO 31196 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-12-21 09:47:36  INFO 31196 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-12-21 09:47:36  INFO 31196 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
-12-21 09:47:36  INFO 31196 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-12-21 09:47:36  INFO 31196 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2070 ms
-12-21 09:47:36  INFO 31196 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-12-21 09:47:36  INFO 31196 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-12-21 09:47:37  INFO 31196 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-12-21 09:47:37  INFO 31196 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-12-21 09:47:38  INFO 31196 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-12-21 09:47:38  INFO 31196 --- [main] com.lxy.forum.DemoApplication            : Started DemoApplication in 4.418 seconds (JVM running for 4.986)
-12-21 09:47:58  INFO 31196 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-12-21 09:47:58  INFO 31196 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-12-21 09:47:58  INFO 31196 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-12-21 11:45:26  INFO 5308 --- [main] c.l.f.service.impl.UserServiceImplTest   : Starting UserServiceImplTest using Java 17.0.9 on uuuujkgh5666 with PID 5308 (started by 27970 in E:\gitHubProject\ForumSystem)
-12-21 11:45:26 DEBUG 5308 --- [main] c.l.f.service.impl.UserServiceImplTest   : Running with Spring Boot v2.7.6, Spring v5.3.24
-12-21 11:45:26  INFO 5308 --- [main] c.l.f.service.impl.UserServiceImplTest   : No active profile set, falling back to 1 default profile: "default"
-12-21 11:45:28  INFO 5308 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-12-21 11:45:29  INFO 5308 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-12-21 11:45:30  INFO 5308 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-12-21 11:45:31  INFO 5308 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-12-21 11:45:32  INFO 5308 --- [main] c.l.f.service.impl.UserServiceImplTest   : Started UserServiceImplTest in 6.568 seconds (JVM running for 7.741)
-12-21 11:45:33 DEBUG 5308 --- [main] c.l.f.dao.UserMapper.selectByUserName    : ==>  Preparing: select id, username, password, nickname, phoneNum, email, gender, salt, avatarUrl, articleCount, isAdmin, remark, state, deleteState, createTime, updateTime from t_user where deleteState = 0 and username = ?
-12-21 11:45:33 DEBUG 5308 --- [main] c.l.f.dao.UserMapper.selectByUserName    : ==> Parameters: 李向阳(String)
-12-21 11:45:33 DEBUG 5308 --- [main] c.l.f.dao.UserMapper.selectByUserName    : <==      Total: 1
-12-21 11:45:33  INFO 5308 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-12-21 11:45:33  INFO 5308 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-12-21 11:45:46  INFO 17256 --- [main] c.l.f.service.impl.UserServiceImplTest   : Starting UserServiceImplTest using Java 17.0.9 on uuuujkgh5666 with PID 17256 (started by 27970 in E:\gitHubProject\ForumSystem)
-12-21 11:45:46 DEBUG 17256 --- [main] c.l.f.service.impl.UserServiceImplTest   : Running with Spring Boot v2.7.6, Spring v5.3.24
-12-21 11:45:46  INFO 17256 --- [main] c.l.f.service.impl.UserServiceImplTest   : No active profile set, falling back to 1 default profile: "default"
-12-21 11:45:48  INFO 17256 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-12-21 11:45:48  INFO 17256 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-12-21 11:45:49  INFO 17256 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-12-21 11:45:50  INFO 17256 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-12-21 11:45:50  INFO 17256 --- [main] c.l.f.service.impl.UserServiceImplTest   : Started UserServiceImplTest in 4.708 seconds (JVM running for 5.536)
-12-21 11:45:51 DEBUG 17256 --- [main] c.l.f.dao.UserMapper.selectByUserName    : ==>  Preparing: select id, username, password, nickname, phoneNum, email, gender, salt, avatarUrl, articleCount, isAdmin, remark, state, deleteState, createTime, updateTime from t_user where deleteState = 0 and username = ?
-12-21 11:45:51 DEBUG 17256 --- [main] c.l.f.dao.UserMapper.selectByUserName    : ==> Parameters: 蔡徐坤(String)
-12-21 11:45:51 DEBUG 17256 --- [main] c.l.f.dao.UserMapper.selectByUserName    : <==      Total: 1
-12-21 11:45:51  WARN 17256 --- [main] c.l.forum.service.impl.UserServiceImpl   : code: 1103;message: ⽤⼾名或密码错误
-12-21 11:45:51  INFO 17256 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-12-21 11:45:51  INFO 17256 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-12-21 11:47:25  INFO 11700 --- [main] c.l.f.service.impl.UserServiceImplTest   : Starting UserServiceImplTest using Java 17.0.9 on uuuujkgh5666 with PID 11700 (started by 27970 in E:\gitHubProject\ForumSystem)
-12-21 11:47:25 DEBUG 11700 --- [main] c.l.f.service.impl.UserServiceImplTest   : Running with Spring Boot v2.7.6, Spring v5.3.24
-12-21 11:47:25  INFO 11700 --- [main] c.l.f.service.impl.UserServiceImplTest   : No active profile set, falling back to 1 default profile: "default"
-12-21 11:47:27  INFO 11700 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-12-21 11:47:27  INFO 11700 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-12-21 11:47:28  INFO 11700 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-12-21 11:47:29  INFO 11700 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-12-21 11:47:29  INFO 11700 --- [main] c.l.f.service.impl.UserServiceImplTest   : Started UserServiceImplTest in 3.908 seconds (JVM running for 4.687)
-12-21 11:47:29 DEBUG 11700 --- [main] c.l.f.dao.UserMapper.selectByUserName    : ==>  Preparing: select id, username, password, nickname, phoneNum, email, gender, salt, avatarUrl, articleCount, isAdmin, remark, state, deleteState, createTime, updateTime from t_user where deleteState = 0 and username = ?
-12-21 11:47:29 DEBUG 11700 --- [main] c.l.f.dao.UserMapper.selectByUserName    : ==> Parameters: 蔡徐坤(String)
-12-21 11:47:29 DEBUG 11700 --- [main] c.l.f.dao.UserMapper.selectByUserName    : <==      Total: 1
-12-21 11:47:30  WARN 11700 --- [main] c.l.forum.service.impl.UserServiceImpl   : 密码错误
-12-21 11:47:30  INFO 11700 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-12-21 11:47:30  INFO 11700 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-12-21 11:49:36  INFO 9780 --- [main] c.l.f.service.impl.UserServiceImplTest   : Starting UserServiceImplTest using Java 17.0.9 on uuuujkgh5666 with PID 9780 (started by 27970 in E:\gitHubProject\ForumSystem)
-12-21 11:49:36 DEBUG 9780 --- [main] c.l.f.service.impl.UserServiceImplTest   : Running with Spring Boot v2.7.6, Spring v5.3.24
-12-21 11:49:36  INFO 9780 --- [main] c.l.f.service.impl.UserServiceImplTest   : No active profile set, falling back to 1 default profile: "default"
-12-21 11:49:37  INFO 9780 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-12-21 11:49:37  INFO 9780 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-12-21 11:49:38  INFO 9780 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-12-21 11:49:39  INFO 9780 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-12-21 11:49:39  INFO 9780 --- [main] c.l.f.service.impl.UserServiceImplTest   : Started UserServiceImplTest in 3.846 seconds (JVM running for 4.666)
-12-21 11:49:40 DEBUG 9780 --- [main] c.l.f.dao.UserMapper.selectByUserName    : ==>  Preparing: select id, username, password, nickname, phoneNum, email, gender, salt, avatarUrl, articleCount, isAdmin, remark, state, deleteState, createTime, updateTime from t_user where deleteState = 0 and username = ?
-12-21 11:49:40 DEBUG 9780 --- [main] c.l.f.dao.UserMapper.selectByUserName    : ==> Parameters: 测(String)
-12-21 11:49:40 DEBUG 9780 --- [main] c.l.f.dao.UserMapper.selectByUserName    : <==      Total: 1
-12-21 11:49:40  INFO 9780 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-12-21 11:49:40  INFO 9780 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-12-21 12:42:33  INFO 31196 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-12-21 12:42:33  INFO 31196 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-12-21 12:42:38  INFO 11164 --- [main] com.lxy.forum.DemoApplication            : Starting DemoApplication using Java 17.0.9 on uuuujkgh5666 with PID 11164 (E:\gitHubProject\ForumSystem\target\classes started by 27970 in E:\gitHubProject\ForumSystem)
-12-21 12:42:38 DEBUG 11164 --- [main] com.lxy.forum.DemoApplication            : Running with Spring Boot v2.7.6, Spring v5.3.24
-12-21 12:42:38  INFO 11164 --- [main] com.lxy.forum.DemoApplication            : No active profile set, falling back to 1 default profile: "default"
-12-21 12:42:40  INFO 11164 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-12-21 12:42:40  INFO 11164 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-12-21 12:42:40  INFO 11164 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
-12-21 12:42:40  INFO 11164 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-12-21 12:42:40  INFO 11164 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1925 ms
-12-21 12:42:40  INFO 11164 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-12-21 12:42:40  INFO 11164 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-12-21 12:42:41  INFO 11164 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-12-21 12:42:42  INFO 11164 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-12-21 12:42:42  INFO 11164 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-12-21 12:42:42  INFO 11164 --- [main] com.lxy.forum.DemoApplication            : Started DemoApplication in 4.544 seconds (JVM running for 4.899)
-12-21 12:42:42  INFO 11164 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-12-21 12:42:42  INFO 11164 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-12-21 12:42:42  INFO 11164 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-12-21 12:43:31 DEBUG 11164 --- [http-nio-8081-exec-1] c.l.f.dao.UserMapper.selectByUserName    : ==>  Preparing: select id, username, password, nickname, phoneNum, email, gender, salt, avatarUrl, articleCount, isAdmin, remark, state, deleteState, createTime, updateTime from t_user where deleteState = 0 and username = ?
-12-21 12:43:31 DEBUG 11164 --- [http-nio-8081-exec-1] c.l.f.dao.UserMapper.selectByUserName    : ==> Parameters: 测(String)
-12-21 12:43:31 DEBUG 11164 --- [http-nio-8081-exec-1] c.l.f.dao.UserMapper.selectByUserName    : <==      Total: 1
-12-21 12:43:37 DEBUG 11164 --- [http-nio-8081-exec-4] c.l.f.dao.UserMapper.selectByUserName    : ==>  Preparing: select id, username, password, nickname, phoneNum, email, gender, salt, avatarUrl, articleCount, isAdmin, remark, state, deleteState, createTime, updateTime from t_user where deleteState = 0 and username = ?
-12-21 12:43:37 DEBUG 11164 --- [http-nio-8081-exec-4] c.l.f.dao.UserMapper.selectByUserName    : ==> Parameters: 测(String)
-12-21 12:43:37 DEBUG 11164 --- [http-nio-8081-exec-4] c.l.f.dao.UserMapper.selectByUserName    : <==      Total: 1
-12-21 12:43:37  WARN 11164 --- [http-nio-8081-exec-4] c.l.forum.service.impl.UserServiceImpl   : 密码错误
-12-21 12:43:37 ERROR 11164 --- [http-nio-8081-exec-4] c.l.f.exception.GlobalExceptionHandler   : ⽤⼾名或密码错误
-12-21 13:01:53  INFO 11164 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-12-21 13:01:53  INFO 11164 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-12-21 13:01:55  INFO 16516 --- [main] com.lxy.forum.DemoApplication            : Starting DemoApplication using Java 17.0.9 on uuuujkgh5666 with PID 16516 (E:\gitHubProject\ForumSystem\target\classes started by 27970 in E:\gitHubProject\ForumSystem)
-12-21 13:01:55 DEBUG 16516 --- [main] com.lxy.forum.DemoApplication            : Running with Spring Boot v2.7.6, Spring v5.3.24
-12-21 13:01:55  INFO 16516 --- [main] com.lxy.forum.DemoApplication            : No active profile set, falling back to 1 default profile: "default"
-12-21 13:01:57  INFO 16516 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-12-21 13:01:57  INFO 16516 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-12-21 13:01:57  INFO 16516 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
-12-21 13:01:57  INFO 16516 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-12-21 13:01:57  INFO 16516 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1870 ms
-12-21 13:01:57  INFO 16516 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-12-21 13:01:58  INFO 16516 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-12-21 13:01:58  INFO 16516 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-12-21 13:01:59  INFO 16516 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-12-21 13:01:59  INFO 16516 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-12-21 13:01:59  INFO 16516 --- [main] com.lxy.forum.DemoApplication            : Started DemoApplication in 4.079 seconds (JVM running for 4.452)
-12-21 13:06:00  INFO 16516 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-12-21 13:06:00  INFO 16516 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-12-21 13:06:00  INFO 16516 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-12-21 13:06:05 DEBUG 16516 --- [http-nio-8081-exec-8] c.l.f.dao.UserMapper.selectByUserName    : ==>  Preparing: select id, username, password, nickname, phoneNum, email, gender, salt, avatarUrl, articleCount, isAdmin, remark, state, deleteState, createTime, updateTime from t_user where deleteState = 0 and username = ?
-12-21 13:06:05 DEBUG 16516 --- [http-nio-8081-exec-8] c.l.f.dao.UserMapper.selectByUserName    : ==> Parameters: 1(String)
-12-21 13:06:05 DEBUG 16516 --- [http-nio-8081-exec-8] c.l.f.dao.UserMapper.selectByUserName    : <==      Total: 0
-12-21 13:06:05  WARN 16516 --- [http-nio-8081-exec-8] c.l.forum.service.impl.UserServiceImpl   : code: 1103;message: ⽤⼾名或密码错误
-12-21 13:06:05 ERROR 16516 --- [http-nio-8081-exec-8] c.l.f.exception.GlobalExceptionHandler   : ⽤⼾名或密码错误
-12-21 13:06:10 DEBUG 16516 --- [http-nio-8081-exec-9] c.l.f.dao.UserMapper.selectByUserName    : ==>  Preparing: select id, username, password, nickname, phoneNum, email, gender, salt, avatarUrl, articleCount, isAdmin, remark, state, deleteState, createTime, updateTime from t_user where deleteState = 0 and username = ?
-12-21 13:06:10 DEBUG 16516 --- [http-nio-8081-exec-9] c.l.f.dao.UserMapper.selectByUserName    : ==> Parameters: 测(String)
-12-21 13:06:10 DEBUG 16516 --- [http-nio-8081-exec-9] c.l.f.dao.UserMapper.selectByUserName    : <==      Total: 1
-12-21 13:10:17  INFO 3988 --- [main] c.l.f.service.impl.UserServiceImplTest   : Starting UserServiceImplTest using Java 17.0.9 on uuuujkgh5666 with PID 3988 (started by 27970 in E:\gitHubProject\ForumSystem)
-12-21 13:10:17 DEBUG 3988 --- [main] c.l.f.service.impl.UserServiceImplTest   : Running with Spring Boot v2.7.6, Spring v5.3.24
-12-21 13:10:17  INFO 3988 --- [main] c.l.f.service.impl.UserServiceImplTest   : No active profile set, falling back to 1 default profile: "default"
-12-21 13:10:19  INFO 3988 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-12-21 13:10:19  INFO 3988 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-12-21 13:10:20  INFO 3988 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-12-21 13:10:21  INFO 3988 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-12-21 13:10:21  INFO 3988 --- [main] c.l.f.service.impl.UserServiceImplTest   : Started UserServiceImplTest in 4.017 seconds (JVM running for 4.81)
-12-21 13:10:22 DEBUG 3988 --- [main] c.l.f.dao.UserMapper.selectByUserName    : ==>  Preparing: select id, username, password, nickname, phoneNum, email, gender, salt, avatarUrl, articleCount, isAdmin, remark, state, deleteState, createTime, updateTime from t_user where deleteState = 0 and username = ?
-12-21 13:10:22 DEBUG 3988 --- [main] c.l.f.dao.UserMapper.selectByUserName    : ==> Parameters: 1(String)
-12-21 13:10:22 DEBUG 3988 --- [main] c.l.f.dao.UserMapper.selectByUserName    : <==      Total: 0
-12-21 13:10:22 DEBUG 3988 --- [main] c.l.f.dao.UserMapper.insertSelective     : ==>  Preparing: insert into t_user ( username, password, nickname, gender, salt, articleCount, isAdmin, state, deleteState, createTime, updateTime ) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
-12-21 13:10:22 DEBUG 3988 --- [main] c.l.f.dao.UserMapper.insertSelective     : ==> Parameters: 1(String), 9eaaafee004fa39b154e868b103b312c(String), 1(String), 2(Byte), eecd53aafd604e0e9cbe40b9749c740f(String), 0(Integer), 0(Byte), 0(Byte), 0(Byte), 2024-12-21 13:10:22.15(Timestamp), 2024-12-21 13:10:22.15(Timestamp)
-12-21 13:10:22 DEBUG 3988 --- [main] c.l.f.dao.UserMapper.insertSelective     : <==    Updates: 1
-12-21 13:10:22  INFO 3988 --- [main] c.l.forum.service.impl.UserServiceImpl   : 新增用户成功: username = 1
-12-21 13:10:22  INFO 3988 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-12-21 13:10:22  INFO 3988 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-12-21 13:10:35 DEBUG 16516 --- [http-nio-8081-exec-5] c.l.f.dao.UserMapper.selectByUserName    : ==>  Preparing: select id, username, password, nickname, phoneNum, email, gender, salt, avatarUrl, articleCount, isAdmin, remark, state, deleteState, createTime, updateTime from t_user where deleteState = 0 and username = ?
-12-21 13:10:35 DEBUG 16516 --- [http-nio-8081-exec-5] c.l.f.dao.UserMapper.selectByUserName    : ==> Parameters: 1(String)
-12-21 13:10:35 DEBUG 16516 --- [http-nio-8081-exec-5] c.l.f.dao.UserMapper.selectByUserName    : <==      Total: 1
-12-21 13:38:24  INFO 23900 --- [main] c.l.f.service.impl.UserServiceImplTest   : Starting UserServiceImplTest using Java 17.0.9 on uuuujkgh5666 with PID 23900 (started by 27970 in E:\gitHubProject\ForumSystem)
-12-21 13:38:24 DEBUG 23900 --- [main] c.l.f.service.impl.UserServiceImplTest   : Running with Spring Boot v2.7.6, Spring v5.3.24
-12-21 13:38:24  INFO 23900 --- [main] c.l.f.service.impl.UserServiceImplTest   : No active profile set, falling back to 1 default profile: "default"
-12-21 13:38:25  INFO 23900 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-12-21 13:38:26  INFO 23900 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-12-21 13:38:26  INFO 23900 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-12-21 13:38:27  INFO 23900 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-12-21 13:38:28  INFO 23900 --- [main] c.l.f.service.impl.UserServiceImplTest   : Started UserServiceImplTest in 3.953 seconds (JVM running for 4.763)
-12-21 13:38:28  INFO 23900 --- [main] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@be68757 testClass = UserServiceImplTest, testInstance = com.lxy.forum.service.impl.UserServiceImplTest@7cbe3a05, testMethod = createNormalUser@UserServiceImplTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@7d446ed1 testClass = UserServiceImplTest, locations = '{}', classes = '{class com.lxy.forum.DemoApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2accdbb5, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@27ff5d15, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@6bedbc4d, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@37654521, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@32b260fa, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@73f792cf], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.jdbc.support.JdbcTransactionManager@40b70f31]; rollback [true]
-12-21 13:38:28 DEBUG 23900 --- [main] c.l.f.dao.UserMapper.selectByUserName    : ==>  Preparing: select id, username, password, nickname, phoneNum, email, gender, salt, avatarUrl, articleCount, isAdmin, remark, state, deleteState, createTime, updateTime from t_user where deleteState = 0 and username = ?
-12-21 13:38:28 DEBUG 23900 --- [main] c.l.f.dao.UserMapper.selectByUserName    : ==> Parameters: 1(String)
-12-21 13:38:28 DEBUG 23900 --- [main] c.l.f.dao.UserMapper.selectByUserName    : <==      Total: 1
-12-21 13:38:28  INFO 23900 --- [main] c.l.forum.service.impl.UserServiceImpl   : code: 1101;message: ⽤⼾已存在
-12-21 13:38:28  INFO 23900 --- [main] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@be68757 testClass = UserServiceImplTest, testInstance = com.lxy.forum.service.impl.UserServiceImplTest@7cbe3a05, testMethod = createNormalUser@UserServiceImplTest, testException = ApplicationException(errorResult=AppResult(code=1101, message=⽤⼾已存在, data=null)), mergedContextConfiguration = [WebMergedContextConfiguration@7d446ed1 testClass = UserServiceImplTest, locations = '{}', classes = '{class com.lxy.forum.DemoApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2accdbb5, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@27ff5d15, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@6bedbc4d, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@37654521, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@32b260fa, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@73f792cf], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
-12-21 13:38:28  INFO 23900 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-12-21 13:38:29  INFO 23900 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-12-21 13:38:35  INFO 16516 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-12-21 13:38:35  INFO 16516 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-12-21 13:38:37  INFO 2480 --- [main] com.lxy.forum.DemoApplication            : Starting DemoApplication using Java 17.0.9 on uuuujkgh5666 with PID 2480 (E:\gitHubProject\ForumSystem\target\classes started by 27970 in E:\gitHubProject\ForumSystem)
-12-21 13:38:37 DEBUG 2480 --- [main] com.lxy.forum.DemoApplication            : Running with Spring Boot v2.7.6, Spring v5.3.24
-12-21 13:38:37  INFO 2480 --- [main] com.lxy.forum.DemoApplication            : No active profile set, falling back to 1 default profile: "default"
-12-21 13:38:39  INFO 2480 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-12-21 13:38:39  INFO 2480 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-12-21 13:38:39  INFO 2480 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
-12-21 13:38:39  INFO 2480 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-12-21 13:38:39  INFO 2480 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1856 ms
-12-21 13:38:39  INFO 2480 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-12-21 13:38:39  INFO 2480 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-12-21 13:38:40  INFO 2480 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-12-21 13:38:41  INFO 2480 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-12-21 13:38:41  INFO 2480 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-12-21 13:38:41  INFO 2480 --- [main] com.lxy.forum.DemoApplication            : Started DemoApplication in 4.253 seconds (JVM running for 4.632)
-12-21 13:38:41  INFO 2480 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-12-21 13:38:41  INFO 2480 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-12-21 13:38:41  INFO 2480 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-12-21 13:41:06  INFO 2480 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-12-21 13:41:06  INFO 2480 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-12-21 13:41:10  INFO 20356 --- [main] com.lxy.forum.DemoApplication            : Starting DemoApplication using Java 17.0.9 on uuuujkgh5666 with PID 20356 (E:\gitHubProject\ForumSystem\target\classes started by 27970 in E:\gitHubProject\ForumSystem)
-12-21 13:41:10 DEBUG 20356 --- [main] com.lxy.forum.DemoApplication            : Running with Spring Boot v2.7.6, Spring v5.3.24
-12-21 13:41:10  INFO 20356 --- [main] com.lxy.forum.DemoApplication            : No active profile set, falling back to 1 default profile: "default"
-12-21 13:41:12  INFO 20356 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-12-21 13:41:12  INFO 20356 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-12-21 13:41:12  INFO 20356 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
-12-21 13:41:12  INFO 20356 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-12-21 13:41:12  INFO 20356 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2372 ms
-12-21 13:41:12  INFO 20356 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-12-21 13:41:12  INFO 20356 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-12-21 13:41:14  INFO 20356 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-12-21 13:41:14  INFO 20356 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-12-21 13:41:14  INFO 20356 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-12-21 13:41:15  INFO 20356 --- [main] com.lxy.forum.DemoApplication            : Started DemoApplication in 5.435 seconds (JVM running for 5.895)
-12-21 13:41:25  INFO 20356 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-12-21 13:41:25  INFO 20356 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-12-21 13:41:25  INFO 20356 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-12-21 13:42:41  INFO 20356 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-12-21 13:42:41  INFO 20356 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-12-21 13:42:44  INFO 2912 --- [main] com.lxy.forum.DemoApplication            : Starting DemoApplication using Java 17.0.9 on uuuujkgh5666 with PID 2912 (E:\gitHubProject\ForumSystem\target\classes started by 27970 in E:\gitHubProject\ForumSystem)
-12-21 13:42:44 DEBUG 2912 --- [main] com.lxy.forum.DemoApplication            : Running with Spring Boot v2.7.6, Spring v5.3.24
-12-21 13:42:44  INFO 2912 --- [main] com.lxy.forum.DemoApplication            : No active profile set, falling back to 1 default profile: "default"
-12-21 13:42:46  INFO 2912 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-12-21 13:42:46  INFO 2912 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-12-21 13:42:46  INFO 2912 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
-12-21 13:42:46  INFO 2912 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-12-21 13:42:46  INFO 2912 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2407 ms
-12-21 13:42:46  INFO 2912 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-12-21 13:42:47  INFO 2912 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-12-21 13:42:47  INFO 2912 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-12-21 13:42:48  INFO 2912 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-12-21 13:42:48  INFO 2912 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-12-21 13:42:48  INFO 2912 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-12-21 13:42:48  INFO 2912 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-12-21 13:42:48  INFO 2912 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-12-21 13:42:48  INFO 2912 --- [main] com.lxy.forum.DemoApplication            : Started DemoApplication in 5.03 seconds (JVM running for 5.486)
-12-21 13:55:04  INFO 2912 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-12-21 13:55:04  INFO 2912 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-12-21 14:05:30  INFO 2436 --- [main] com.lxy.forum.DemoApplication            : Starting DemoApplication using Java 17.0.9 on uuuujkgh5666 with PID 2436 (E:\gitHubProject\ForumSystem\target\classes started by 27970 in E:\gitHubProject\ForumSystem)
-12-21 14:05:30 DEBUG 2436 --- [main] com.lxy.forum.DemoApplication            : Running with Spring Boot v2.7.6, Spring v5.3.24
-12-21 14:05:30  INFO 2436 --- [main] com.lxy.forum.DemoApplication            : No active profile set, falling back to 1 default profile: "default"
-12-21 14:05:32  INFO 2436 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-12-21 14:05:32  INFO 2436 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-12-21 14:05:32  INFO 2436 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
-12-21 14:05:32  INFO 2436 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-12-21 14:05:32  INFO 2436 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1762 ms
-12-21 14:05:32  INFO 2436 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-12-21 14:05:32  INFO 2436 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-12-21 14:05:33  INFO 2436 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-12-21 14:05:33  INFO 2436 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-12-21 14:05:34  INFO 2436 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-12-21 14:05:34  INFO 2436 --- [main] com.lxy.forum.DemoApplication            : Started DemoApplication in 4.061 seconds (JVM running for 4.425)
-12-21 14:05:42  INFO 2436 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-12-21 14:05:42  INFO 2436 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-12-21 14:05:42  INFO 2436 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-12-21 14:10:40  INFO 2436 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-12-21 14:10:40  INFO 2436 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-12-21 14:10:42  INFO 22264 --- [main] com.lxy.forum.DemoApplication            : Starting DemoApplication using Java 17.0.9 on uuuujkgh5666 with PID 22264 (E:\gitHubProject\ForumSystem\target\classes started by 27970 in E:\gitHubProject\ForumSystem)
-12-21 14:10:42 DEBUG 22264 --- [main] com.lxy.forum.DemoApplication            : Running with Spring Boot v2.7.6, Spring v5.3.24
-12-21 14:10:42  INFO 22264 --- [main] com.lxy.forum.DemoApplication            : No active profile set, falling back to 1 default profile: "default"
-12-21 14:10:44  INFO 22264 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-12-21 14:10:44  INFO 22264 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-12-21 14:10:44  INFO 22264 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
-12-21 14:10:44  INFO 22264 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-12-21 14:10:44  INFO 22264 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1715 ms
-12-21 14:10:44  INFO 22264 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-12-21 14:10:44  INFO 22264 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-12-21 14:10:45  INFO 22264 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-12-21 14:10:45  INFO 22264 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-12-21 14:10:45  INFO 22264 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-12-21 14:10:46  INFO 22264 --- [main] com.lxy.forum.DemoApplication            : Started DemoApplication in 3.909 seconds (JVM running for 4.267)
-12-21 14:11:01  INFO 22264 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-12-21 14:11:01  INFO 22264 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-12-21 14:11:01  INFO 22264 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-12-21 14:11:30  INFO 22264 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-12-21 14:11:30  INFO 22264 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-12-21 14:11:32  INFO 31464 --- [main] com.lxy.forum.DemoApplication            : Starting DemoApplication using Java 17.0.9 on uuuujkgh5666 with PID 31464 (E:\gitHubProject\ForumSystem\target\classes started by 27970 in E:\gitHubProject\ForumSystem)
-12-21 14:11:32 DEBUG 31464 --- [main] com.lxy.forum.DemoApplication            : Running with Spring Boot v2.7.6, Spring v5.3.24
-12-21 14:11:32  INFO 31464 --- [main] com.lxy.forum.DemoApplication            : No active profile set, falling back to 1 default profile: "default"
-12-21 14:11:33  INFO 31464 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-12-21 14:11:33  INFO 31464 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-12-21 14:11:33  INFO 31464 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
-12-21 14:11:33  INFO 31464 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-12-21 14:11:33  INFO 31464 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1721 ms
-12-21 14:11:34  INFO 31464 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-12-21 14:11:34  INFO 31464 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-12-21 14:11:35  INFO 31464 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-12-21 14:11:35  INFO 31464 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-12-21 14:11:35  INFO 31464 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-12-21 14:11:35  INFO 31464 --- [main] com.lxy.forum.DemoApplication            : Started DemoApplication in 3.94 seconds (JVM running for 4.284)
-12-21 14:11:47  INFO 31464 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-12-21 14:11:47  INFO 31464 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-12-21 14:11:47  INFO 31464 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-12-21 14:13:18  INFO 31464 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-12-21 14:13:18  INFO 31464 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-12-21 14:13:20  INFO 2480 --- [main] com.lxy.forum.DemoApplication            : Starting DemoApplication using Java 17.0.9 on uuuujkgh5666 with PID 2480 (E:\gitHubProject\ForumSystem\target\classes started by 27970 in E:\gitHubProject\ForumSystem)
-12-21 14:13:20 DEBUG 2480 --- [main] com.lxy.forum.DemoApplication            : Running with Spring Boot v2.7.6, Spring v5.3.24
-12-21 14:13:20  INFO 2480 --- [main] com.lxy.forum.DemoApplication            : No active profile set, falling back to 1 default profile: "default"
-12-21 14:13:22  INFO 2480 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-12-21 14:13:22  INFO 2480 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-12-21 14:13:22  INFO 2480 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
-12-21 14:13:22  INFO 2480 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-12-21 14:13:22  INFO 2480 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1870 ms
-12-21 14:13:22  INFO 2480 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-12-21 14:13:22  INFO 2480 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-12-21 14:13:23  INFO 2480 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-12-21 14:13:23  INFO 2480 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-12-21 14:13:23  INFO 2480 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-12-21 14:13:24  INFO 2480 --- [main] com.lxy.forum.DemoApplication            : Started DemoApplication in 4.111 seconds (JVM running for 4.504)
-12-21 14:13:36  INFO 2480 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-12-21 14:13:36  INFO 2480 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-12-21 14:13:36  INFO 2480 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-12-21 14:16:05  INFO 2480 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-12-21 14:16:05  INFO 2480 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-12-21 14:16:07  INFO 26040 --- [main] com.lxy.forum.DemoApplication            : Starting DemoApplication using Java 17.0.9 on uuuujkgh5666 with PID 26040 (E:\gitHubProject\ForumSystem\target\classes started by 27970 in E:\gitHubProject\ForumSystem)
-12-21 14:16:07 DEBUG 26040 --- [main] com.lxy.forum.DemoApplication            : Running with Spring Boot v2.7.6, Spring v5.3.24
-12-21 14:16:07  INFO 26040 --- [main] com.lxy.forum.DemoApplication            : No active profile set, falling back to 1 default profile: "default"
-12-21 14:16:08  INFO 26040 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-12-21 14:16:08  INFO 26040 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-12-21 14:16:08  INFO 26040 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
-12-21 14:16:09  INFO 26040 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-12-21 14:16:09  INFO 26040 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1666 ms
-12-21 14:16:09  INFO 26040 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-12-21 14:16:09  INFO 26040 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-12-21 14:16:09  INFO 26040 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-12-21 14:16:10  INFO 26040 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-12-21 14:16:10  INFO 26040 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-12-21 14:16:10  INFO 26040 --- [main] com.lxy.forum.DemoApplication            : Started DemoApplication in 3.724 seconds (JVM running for 4.069)
-12-21 14:16:19  INFO 26040 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-12-21 14:16:19  INFO 26040 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-12-21 14:16:19  INFO 26040 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-12-21 14:16:42  INFO 26040 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-12-21 14:16:42  INFO 26040 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-12-21 14:16:44  INFO 19776 --- [main] com.lxy.forum.DemoApplication            : Starting DemoApplication using Java 17.0.9 on uuuujkgh5666 with PID 19776 (E:\gitHubProject\ForumSystem\target\classes started by 27970 in E:\gitHubProject\ForumSystem)
-12-21 14:16:44 DEBUG 19776 --- [main] com.lxy.forum.DemoApplication            : Running with Spring Boot v2.7.6, Spring v5.3.24
-12-21 14:16:44  INFO 19776 --- [main] com.lxy.forum.DemoApplication            : No active profile set, falling back to 1 default profile: "default"
-12-21 14:16:46  INFO 19776 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-12-21 14:16:46  INFO 19776 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-12-21 14:16:46  INFO 19776 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
-12-21 14:16:46  INFO 19776 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-12-21 14:16:46  INFO 19776 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1746 ms
-12-21 14:16:46  INFO 19776 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-12-21 14:16:46  INFO 19776 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-12-21 14:16:47  INFO 19776 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-12-21 14:16:48  INFO 19776 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-12-21 14:16:48  INFO 19776 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-12-21 14:16:48  INFO 19776 --- [main] com.lxy.forum.DemoApplication            : Started DemoApplication in 3.875 seconds (JVM running for 4.245)
-12-21 14:18:42  INFO 19776 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-12-21 14:18:42  INFO 19776 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-12-21 14:18:42  INFO 19776 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-12-21 14:18:55 DEBUG 19776 --- [http-nio-8081-exec-3] c.l.f.dao.UserMapper.selectByUserName    : ==>  Preparing: select id, username, password, nickname, phoneNum, email, gender, salt, avatarUrl, articleCount, isAdmin, remark, state, deleteState, createTime, updateTime from t_user where deleteState = 0 and username = ?
-12-21 14:18:55 DEBUG 19776 --- [http-nio-8081-exec-3] c.l.f.dao.UserMapper.selectByUserName    : ==> Parameters: 11(String)
-12-21 14:18:55 DEBUG 19776 --- [http-nio-8081-exec-3] c.l.f.dao.UserMapper.selectByUserName    : <==      Total: 0
-12-21 14:18:55 DEBUG 19776 --- [http-nio-8081-exec-3] c.l.f.dao.UserMapper.insertSelective     : ==>  Preparing: insert into t_user ( username, password, nickname, gender, salt, articleCount, isAdmin, state, deleteState, createTime, updateTime ) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
-12-21 14:18:55 DEBUG 19776 --- [http-nio-8081-exec-3] c.l.f.dao.UserMapper.insertSelective     : ==> Parameters: 11(String), aa3838691c3af8e1a344a492e150a4c8(String), 1(String), 2(Byte), 1851c10770e24fe499e61876f9ffe55e(String), 0(Integer), 0(Byte), 0(Byte), 0(Byte), 2024-12-21 14:18:55.267(Timestamp), 2024-12-21 14:18:55.267(Timestamp)
-12-21 14:18:55 DEBUG 19776 --- [http-nio-8081-exec-3] c.l.f.dao.UserMapper.insertSelective     : <==    Updates: 1
-12-21 14:18:55  INFO 19776 --- [http-nio-8081-exec-3] c.l.forum.service.impl.UserServiceImpl   : 新增用户成功: username = 11
-12-21 14:22:19  INFO 19776 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-12-21 14:22:19  INFO 19776 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-12-21 14:22:21  INFO 14108 --- [main] com.lxy.forum.DemoApplication            : Starting DemoApplication using Java 17.0.9 on uuuujkgh5666 with PID 14108 (E:\gitHubProject\ForumSystem\target\classes started by 27970 in E:\gitHubProject\ForumSystem)
-12-21 14:22:21 DEBUG 14108 --- [main] com.lxy.forum.DemoApplication            : Running with Spring Boot v2.7.6, Spring v5.3.24
-12-21 14:22:21  INFO 14108 --- [main] com.lxy.forum.DemoApplication            : No active profile set, falling back to 1 default profile: "default"
-12-21 14:22:23  INFO 14108 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-12-21 14:22:23  INFO 14108 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-12-21 14:22:23  INFO 14108 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
-12-21 14:22:23  INFO 14108 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-12-21 14:22:23  INFO 14108 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1873 ms
-12-21 14:22:23  INFO 14108 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-12-21 14:22:23  INFO 14108 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-12-21 14:22:24  INFO 14108 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-12-21 14:22:25  INFO 14108 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-12-21 14:22:25  INFO 14108 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-12-21 14:22:25  INFO 14108 --- [main] com.lxy.forum.DemoApplication            : Started DemoApplication in 4.115 seconds (JVM running for 4.473)
-12-21 14:22:32  INFO 14108 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-12-21 14:22:32  INFO 14108 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-12-21 14:22:32  INFO 14108 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-12-21 14:24:54  INFO 14108 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-12-21 14:24:54  INFO 14108 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-12-21 14:24:56  INFO 36548 --- [main] com.lxy.forum.DemoApplication            : Starting DemoApplication using Java 17.0.9 on uuuujkgh5666 with PID 36548 (E:\gitHubProject\ForumSystem\target\classes started by 27970 in E:\gitHubProject\ForumSystem)
-12-21 14:24:56 DEBUG 36548 --- [main] com.lxy.forum.DemoApplication            : Running with Spring Boot v2.7.6, Spring v5.3.24
-12-21 14:24:56  INFO 36548 --- [main] com.lxy.forum.DemoApplication            : No active profile set, falling back to 1 default profile: "default"
-12-21 14:24:58  INFO 36548 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-12-21 14:24:58  INFO 36548 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-12-21 14:24:58  INFO 36548 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
-12-21 14:24:58  INFO 36548 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-12-21 14:24:58  INFO 36548 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1756 ms
-12-21 14:24:58  INFO 36548 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-12-21 14:24:58  INFO 36548 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-12-21 14:24:59  INFO 36548 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-12-21 14:24:59  INFO 36548 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-12-21 14:24:59  INFO 36548 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-12-21 14:24:59  INFO 36548 --- [main] com.lxy.forum.DemoApplication            : Started DemoApplication in 3.864 seconds (JVM running for 4.227)
-12-21 14:25:25  INFO 36548 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-12-21 14:25:25  INFO 36548 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-12-21 14:25:25  INFO 36548 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-12-21 14:28:03  INFO 36548 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-12-21 14:28:03  INFO 36548 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-12-21 14:28:08  INFO 31852 --- [main] com.lxy.forum.DemoApplication            : Starting DemoApplication using Java 17.0.9 on uuuujkgh5666 with PID 31852 (E:\gitHubProject\ForumSystem\target\classes started by 27970 in E:\gitHubProject\ForumSystem)
-12-21 14:28:08 DEBUG 31852 --- [main] com.lxy.forum.DemoApplication            : Running with Spring Boot v2.7.6, Spring v5.3.24
-12-21 14:28:08  INFO 31852 --- [main] com.lxy.forum.DemoApplication            : No active profile set, falling back to 1 default profile: "default"
-12-21 14:28:09  INFO 31852 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-12-21 14:28:09  INFO 31852 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-12-21 14:28:09  INFO 31852 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
-12-21 14:28:09  INFO 31852 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-12-21 14:28:09  INFO 31852 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1704 ms
-12-21 14:28:09  INFO 31852 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-12-21 14:28:10  INFO 31852 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-12-21 14:28:10  INFO 31852 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-12-21 14:28:11  INFO 31852 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-12-21 14:28:11  INFO 31852 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-12-21 14:28:11  INFO 31852 --- [main] com.lxy.forum.DemoApplication            : Started DemoApplication in 3.865 seconds (JVM running for 4.245)
-12-21 14:28:24  INFO 31852 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-12-21 14:28:24  INFO 31852 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-12-21 14:28:24  INFO 31852 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-12-21 14:28:28 DEBUG 31852 --- [http-nio-8081-exec-7] c.l.f.dao.UserMapper.selectByUserName    : ==>  Preparing: select id, username, password, nickname, phoneNum, email, gender, salt, avatarUrl, articleCount, isAdmin, remark, state, deleteState, createTime, updateTime from t_user where deleteState = 0 and username = ?
-12-21 14:28:28 DEBUG 31852 --- [http-nio-8081-exec-7] c.l.f.dao.UserMapper.selectByUserName    : ==> Parameters: 1(String)
-12-21 14:28:28 DEBUG 31852 --- [http-nio-8081-exec-7] c.l.f.dao.UserMapper.selectByUserName    : <==      Total: 1
-12-21 14:28:37 DEBUG 31852 --- [http-nio-8081-exec-5] c.l.f.dao.UserMapper.selectByUserName    : ==>  Preparing: select id, username, password, nickname, phoneNum, email, gender, salt, avatarUrl, articleCount, isAdmin, remark, state, deleteState, createTime, updateTime from t_user where deleteState = 0 and username = ?
-12-21 14:28:37 DEBUG 31852 --- [http-nio-8081-exec-5] c.l.f.dao.UserMapper.selectByUserName    : ==> Parameters: 1(String)
-12-21 14:28:37 DEBUG 31852 --- [http-nio-8081-exec-5] c.l.f.dao.UserMapper.selectByUserName    : <==      Total: 1
-12-21 14:44:06 DEBUG 31852 --- [http-nio-8081-exec-1] c.l.f.dao.UserMapper.selectByUserName    : ==>  Preparing: select id, username, password, nickname, phoneNum, email, gender, salt, avatarUrl, articleCount, isAdmin, remark, state, deleteState, createTime, updateTime from t_user where deleteState = 0 and username = ?
-12-21 14:44:06 DEBUG 31852 --- [http-nio-8081-exec-1] c.l.f.dao.UserMapper.selectByUserName    : ==> Parameters: 1(String)
-12-21 14:44:06 DEBUG 31852 --- [http-nio-8081-exec-1] c.l.f.dao.UserMapper.selectByUserName    : <==      Total: 1
-12-21 15:29:27  INFO 31852 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-12-21 15:29:27  INFO 31852 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-12-21 15:55:30  INFO 18904 --- [main] c.l.f.service.impl.UserServiceImplTest   : Starting UserServiceImplTest using Java 17.0.9 on uuuujkgh5666 with PID 18904 (started by 27970 in E:\gitHubProject\ForumSystem)
-12-21 15:55:30 DEBUG 18904 --- [main] c.l.f.service.impl.UserServiceImplTest   : Running with Spring Boot v2.7.6, Spring v5.3.24
-12-21 15:55:30  INFO 18904 --- [main] c.l.f.service.impl.UserServiceImplTest   : No active profile set, falling back to 1 default profile: "default"
-12-21 15:55:31  INFO 18904 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-12-21 15:55:32  INFO 18904 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-12-21 15:55:33  INFO 18904 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-12-21 15:55:34  INFO 18904 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-12-21 15:55:34  INFO 18904 --- [main] c.l.f.service.impl.UserServiceImplTest   : Started UserServiceImplTest in 4.997 seconds (JVM running for 6.14)
-12-21 15:55:35 DEBUG 18904 --- [main] c.l.f.dao.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, username, password, nickname, phoneNum, email, gender, salt, avatarUrl, articleCount, isAdmin, remark, state, deleteState, createTime, updateTime from t_user where id = ?
-12-21 15:55:35 DEBUG 18904 --- [main] c.l.f.dao.UserMapper.selectByPrimaryKey  : ==> Parameters: 1(Long)
-12-21 15:55:35 DEBUG 18904 --- [main] c.l.f.dao.UserMapper.selectByPrimaryKey  : <==      Total: 1
-12-21 15:55:35  INFO 18904 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-12-21 15:55:35  INFO 18904 --F- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-gggggjjjjjlllFFFFFFggggggglllrrr
+01-04 19:08:56  INFO 27224 --- [main] c.l.f.service.impl.UserServiceImplTest   : Starting UserServiceImplTest using Java 17.0.9 on uuuujkgh5666 with PID 27224 (started by 27970 in E:\gitHubProject\ForumSystem)
+01-04 19:08:56 DEBUG 27224 --- [main] c.l.f.service.impl.UserServiceImplTest   : Running with Spring Boot v2.7.6, Spring v5.3.24
+01-04 19:08:56  INFO 27224 --- [main] c.l.f.service.impl.UserServiceImplTest   : No active profile set, falling back to 1 default profile: "default"
+01-04 19:08:59  INFO 27224 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+01-04 19:08:59  INFO 27224 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+01-04 19:09:01  INFO 27224 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+01-04 19:09:02  INFO 27224 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+01-04 19:09:03  INFO 27224 --- [main] c.l.f.service.impl.UserServiceImplTest   : Started UserServiceImplTest in 6.844 seconds (JVM running for 8.128)
+01-04 19:09:03 ERROR 27224 --- [Druid-ConnectionPool-Create-529621529] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://127.0.0.1:3306/forum_db?serverTimezone=UTC&characterEncoding=utf8&useSSL=false, errorCode 0, state 08001
+
+java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:108) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1701) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1786) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2910) ~[druid-1.2.16.jar:na]
+
+01-04 19:09:03 ERROR 27224 --- [Druid-ConnectionPool-Create-529621529] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://127.0.0.1:3306/forum_db?serverTimezone=UTC&characterEncoding=utf8&useSSL=false, errorCode 0, state 08001
+
+java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:108) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1701) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1786) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2910) ~[druid-1.2.16.jar:na]
+
+01-04 19:09:03  INFO 27224 --- [Druid-ConnectionPool-Create-529621529] c.a.druid.pool.DruidAbstractDataSource   : {dataSource-1} failContinuous is true
+01-04 19:09:04 ERROR 27224 --- [Druid-ConnectionPool-Create-529621529] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://127.0.0.1:3306/forum_db?serverTimezone=UTC&characterEncoding=utf8&useSSL=false, errorCode 0, state 08001
+
+java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:108) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1701) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1786) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2910) ~[druid-1.2.16.jar:na]
+
+01-04 19:09:04 ERROR 27224 --- [Druid-ConnectionPool-Create-529621529] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://127.0.0.1:3306/forum_db?serverTimezone=UTC&characterEncoding=utf8&useSSL=false, errorCode 0, state 08001
+
+java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:108) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1701) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1786) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2910) ~[druid-1.2.16.jar:na]
+
+01-04 19:09:05 ERROR 27224 --- [Druid-ConnectionPool-Create-529621529] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://127.0.0.1:3306/forum_db?serverTimezone=UTC&characterEncoding=utf8&useSSL=false, errorCode 0, state 08001
+
+java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:108) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1701) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1786) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2910) ~[druid-1.2.16.jar:na]
+
+01-04 19:09:06 ERROR 27224 --- [Druid-ConnectionPool-Create-529621529] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://127.0.0.1:3306/forum_db?serverTimezone=UTC&characterEncoding=utf8&useSSL=false, errorCode 0, state 08001
+
+java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:108) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1701) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1786) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2910) ~[druid-1.2.16.jar:na]
+
+01-04 19:09:06 ERROR 27224 --- [Druid-ConnectionPool-Create-529621529] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://127.0.0.1:3306/forum_db?serverTimezone=UTC&characterEncoding=utf8&useSSL=false, errorCode 0, state 08001
+
+java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:108) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1701) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1786) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2910) ~[druid-1.2.16.jar:na]
+
+01-04 19:09:07 ERROR 27224 --- [Druid-ConnectionPool-Create-529621529] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://127.0.0.1:3306/forum_db?serverTimezone=UTC&characterEncoding=utf8&useSSL=false, errorCode 0, state 08001
+
+java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:108) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1701) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1786) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2910) ~[druid-1.2.16.jar:na]
+
+01-04 19:09:07 ERROR 27224 --- [Druid-ConnectionPool-Create-529621529] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://127.0.0.1:3306/forum_db?serverTimezone=UTC&characterEncoding=utf8&useSSL=false, errorCode 0, state 08001
+
+java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:108) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1701) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1786) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2910) ~[druid-1.2.16.jar:na]
+
+01-04 19:09:08 ERROR 27224 --- [Druid-ConnectionPool-Create-529621529] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://127.0.0.1:3306/forum_db?serverTimezone=UTC&characterEncoding=utf8&useSSL=false, errorCode 0, state 08001
+
+java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:108) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1701) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1786) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2910) ~[druid-1.2.16.jar:na]
+
+01-04 19:09:08 ERROR 27224 --- [Druid-ConnectionPool-Create-529621529] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://127.0.0.1:3306/forum_db?serverTimezone=UTC&characterEncoding=utf8&useSSL=false, errorCode 0, state 08001
+
+java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:108) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1701) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1786) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2910) ~[druid-1.2.16.jar:na]
+
+01-04 19:09:09 ERROR 27224 --- [Druid-ConnectionPool-Create-529621529] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://127.0.0.1:3306/forum_db?serverTimezone=UTC&characterEncoding=utf8&useSSL=false, errorCode 0, state 08001
+
+java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:108) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1701) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1786) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2910) ~[druid-1.2.16.jar:na]
+
+01-04 19:09:09 ERROR 27224 --- [Druid-ConnectionPool-Create-529621529] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://127.0.0.1:3306/forum_db?serverTimezone=UTC&characterEncoding=utf8&useSSL=false, errorCode 0, state 08001
+
+java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:108) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1701) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1786) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2910) ~[druid-1.2.16.jar:na]
+
+01-04 19:09:10 ERROR 27224 --- [Druid-ConnectionPool-Create-529621529] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://127.0.0.1:3306/forum_db?serverTimezone=UTC&characterEncoding=utf8&useSSL=false, errorCode 0, state 08001
+
+java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:108) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1701) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1786) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2910) ~[druid-1.2.16.jar:na]
+
+01-04 19:09:10 ERROR 27224 --- [Druid-ConnectionPool-Create-529621529] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://127.0.0.1:3306/forum_db?serverTimezone=UTC&characterEncoding=utf8&useSSL=false, errorCode 0, state 08001
+
+java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:108) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1701) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1786) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2910) ~[druid-1.2.16.jar:na]
+
+01-04 19:09:11 ERROR 27224 --- [Druid-ConnectionPool-Create-529621529] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://127.0.0.1:3306/forum_db?serverTimezone=UTC&characterEncoding=utf8&useSSL=false, errorCode 0, state 08001
+
+java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:108) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1701) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1786) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2910) ~[druid-1.2.16.jar:na]
+
+01-04 19:09:11 ERROR 27224 --- [Druid-ConnectionPool-Create-529621529] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://127.0.0.1:3306/forum_db?serverTimezone=UTC&characterEncoding=utf8&useSSL=false, errorCode 0, state 08001
+
+java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:108) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1701) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1786) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2910) ~[druid-1.2.16.jar:na]
+
+01-04 19:09:12 ERROR 27224 --- [Druid-ConnectionPool-Create-529621529] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://127.0.0.1:3306/forum_db?serverTimezone=UTC&characterEncoding=utf8&useSSL=false, errorCode 0, state 08001
+
+java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:108) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1701) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1786) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2910) ~[druid-1.2.16.jar:na]
+
+01-04 19:09:12 ERROR 27224 --- [Druid-ConnectionPool-Create-529621529] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://127.0.0.1:3306/forum_db?serverTimezone=UTC&characterEncoding=utf8&useSSL=false, errorCode 0, state 08001
+
+java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:108) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1701) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1786) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2910) ~[druid-1.2.16.jar:na]
+
+01-04 19:09:13 ERROR 27224 --- [Druid-ConnectionPool-Create-529621529] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://127.0.0.1:3306/forum_db?serverTimezone=UTC&characterEncoding=utf8&useSSL=false, errorCode 0, state 08001
+
+java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:108) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1701) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1786) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2910) ~[druid-1.2.16.jar:na]
+
+01-04 19:09:13 ERROR 27224 --- [Druid-ConnectionPool-Create-529621529] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://127.0.0.1:3306/forum_db?serverTimezone=UTC&characterEncoding=utf8&useSSL=false, errorCode 0, state 08001
+
+java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:108) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1701) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1786) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2910) ~[druid-1.2.16.jar:na]
+
+01-04 19:09:14 ERROR 27224 --- [Druid-ConnectionPool-Create-529621529] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://127.0.0.1:3306/forum_db?serverTimezone=UTC&characterEncoding=utf8&useSSL=false, errorCode 0, state 08001
+
+java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:108) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1701) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1786) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2910) ~[druid-1.2.16.jar:na]
+
+01-04 19:09:14 ERROR 27224 --- [Druid-ConnectionPool-Create-529621529] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://127.0.0.1:3306/forum_db?serverTimezone=UTC&characterEncoding=utf8&useSSL=false, errorCode 0, state 08001
+
+java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:108) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1701) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1786) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2910) ~[druid-1.2.16.jar:na]
+
+01-04 19:09:15 ERROR 27224 --- [Druid-ConnectionPool-Create-529621529] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://127.0.0.1:3306/forum_db?serverTimezone=UTC&characterEncoding=utf8&useSSL=false, errorCode 0, state 08001
+
+java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:108) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:862) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:230) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:226) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1701) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1786) ~[druid-1.2.16.jar:na]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2910) ~[druid-1.2.16.jar:na]
+
+01-04 19:09:15  INFO 27224 --- [Druid-ConnectionPool-Create-529621529] c.a.druid.pool.DruidAbstractDataSource   : {dataSource-1} failContinuous is false
+01-04 19:09:15 DEBUG 27224 --- [main] c.l.f.dao.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, username, password, nickname, phoneNum, email, gender, salt, avatarUrl, articleCount, isAdmin, remark, state, deleteState, createTime, updateTime from t_user where id = ?
+01-04 19:09:15 DEBUG 27224 --- [main] c.l.f.dao.UserMapper.selectByPrimaryKey  : ==> Parameters: 1(Long)
+01-04 19:09:15 DEBUG 27224 --- [main] c.l.f.dao.UserMapper.selectByPrimaryKey  : <==      Total: 1
+01-04 19:09:15  INFO 27224 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+01-04 19:09:15  INFO 27224 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+01-04 19:41:46  INFO 3308 --- [main] com.lxy.forum.DemoApplication            : Starting DemoApplication using Java 17.0.9 on uuuujkgh5666 with PID 3308 (E:\gitHubProject\ForumSystem\target\classes started by 27970 in E:\gitHubProject\ForumSystem)
+01-04 19:41:46 DEBUG 3308 --- [main] com.lxy.forum.DemoApplication            : Running with Spring Boot v2.7.6, Spring v5.3.24
+01-04 19:41:46  INFO 3308 --- [main] com.lxy.forum.DemoApplication            : No active profile set, falling back to 1 default profile: "default"
+01-04 19:41:48  INFO 3308 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+01-04 19:41:48  INFO 3308 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+01-04 19:41:48  INFO 3308 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.69]
+01-04 19:41:48  INFO 3308 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+01-04 19:41:48  INFO 3308 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2349 ms
+01-04 19:41:48  INFO 3308 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+01-04 19:41:49  INFO 3308 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+01-04 19:41:50  INFO 3308 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+01-04 19:41:50  INFO 3308 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+01-04 19:41:51  INFO 3308 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+01-04 19:41:51  INFO 3308 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+01-04 19:41:51  INFO 3308 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+01-04 19:41:51  INFO 3308 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+01-04 19:41:51  INFO 3308 --- [main] com.lxy.forum.DemoApplication            : Started DemoApplication in 6.058 seconds (JVM running for 6.574)
+01-04 19:42:24 DEBUG 3308 --- [http-nio-8081-exec-3] c.l.f.dao.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, username, password, nickname, phoneNum, email, gender, salt, avatarUrl, articleCount, isAdmin, remark, state, deleteState, createTime, updateTime from t_user where id = ?
+01-04 19:42:24 DEBUG 3308 --- [http-nio-8081-exec-3] c.l.f.dao.UserMapper.selectByPrimaryKey  : ==> Parameters: 1(Long)
+01-04 19:42:24 DEBUG 3308 --- [http-nio-8081-exec-3] c.l.f.dao.UserMapper.selectByPrimaryKey  : <==      Total: 1
+01-04 19:43:03 DEBUG 3308 --- [http-nio-8081-exec-8] c.l.f.dao.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, username, password, nickname, phoneNum, email, gender, salt, avatarUrl, articleCount, isAdmin, remark, state, deleteState, createTime, updateTime from t_user where id = ?
+01-04 19:43:03 DEBUG 3308 --- [http-nio-8081-exec-8] c.l.f.dao.UserMapper.selectByPrimaryKey  : ==> Parameters: 2(Long)
+01-04 19:43:03 DEBUG 3308 --- [http-nio-8081-exec-8] c.l.f.dao.UserMapper.selectByPrimaryKey  : <==      Total: 1
+01-04 19:44:06 DEBUG 3308 --- [http-nio-8081-exec-10] c.l.f.dao.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, username, password, nickname, phoneNum, email, gender, salt, avatarUrl, articleCount, isAdmin, remark, state, deleteState, createTime, updateTime from t_user where id = ?
+01-04 19:44:06 DEBUG 3308 --- [http-nio-8081-exec-10] c.l.f.dao.UserMapper.selectByPrimaryKey  : ==> Parameters: 6(Long)
+01-04 19:44:06 DEBUG 3308 --- [http-nio-8081-exec-10] c.l.f.dao.UserMapper.selectByPrimaryKey  : <==      Total: 1
