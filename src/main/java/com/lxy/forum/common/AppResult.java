@@ -1,12 +1,17 @@
 package com.lxy.forum.common;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 @Data
 public class AppResult<T> {
 
+    //不论任何情况都参加json序列化
+    @JsonInclude(JsonInclude.Include.ALWAYS)
     private int code;
+    @JsonInclude(JsonInclude.Include.ALWAYS)
     private String message;
+    @JsonInclude(JsonInclude.Include.ALWAYS)
     private T data;
 
     public AppResult(int code, String message) {
