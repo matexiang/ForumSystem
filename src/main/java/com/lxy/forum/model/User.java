@@ -1,5 +1,6 @@
 package com.lxy.forum.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -13,6 +14,7 @@ public class User {
     @ApiModelProperty("用户")
     private String username;
 
+    @JsonIgnore //不参与json序列化
     private String password;
 
     @ApiModelProperty("昵称")
@@ -25,6 +27,7 @@ public class User {
 
     private Byte gender;
 
+    @JsonIgnore //不参与json序列化
     private String salt;
 
     @ApiModelProperty("头像地址")
@@ -39,6 +42,7 @@ public class User {
     @ApiModelProperty("用户状态")
     private Byte state;
 
+    @JsonIgnore //不参与json序列化
     private Byte deleteState;
     @ApiModelProperty("注册日期")
     private Date createTime;
