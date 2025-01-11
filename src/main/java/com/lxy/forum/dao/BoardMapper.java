@@ -2,6 +2,9 @@ package com.lxy.forum.dao;
 
 import com.lxy.forum.model.Board;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 @Mapper
 public interface BoardMapper {
@@ -14,4 +17,8 @@ public interface BoardMapper {
     int updateByPrimaryKeySelective(Board row);
 
     int updateByPrimaryKey(Board row);
+
+
+    List<Board> selectByNum (@Param("num") Integer num);
+
 }
