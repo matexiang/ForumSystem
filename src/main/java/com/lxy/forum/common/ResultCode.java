@@ -20,7 +20,9 @@ public enum ResultCode {
 
     FAILED_USER_ARTICLE_COUNT     (1201,"更新帖子数量失败"),
 
+    FAILED_BOARD_BANNED           (1201,"板块状态异常"),
     FAILED_BOARD_ARTICLE_COUNT     (1201,"更新帖子数量失败");
+
 
 
     int code;
