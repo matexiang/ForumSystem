@@ -17,6 +17,7 @@ import java.util.List;
 @Slf4j
 @Api(tags = "板块接口")
 @RestController
+@RequestMapping("/board")
 public class BoardController {
 
     //从配置文件中读取值,如果没有配置,默认值为9
