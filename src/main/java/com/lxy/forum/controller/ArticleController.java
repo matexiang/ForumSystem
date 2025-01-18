@@ -79,8 +79,16 @@ public class ArticleController {
     @RequestMapping("/getAllByBoardId")
     public AppResult<List<Article>> getAllByBoard(@ApiParam("板块Id") @RequestParam(value = "boardId", required = false) Long boardId){
 
-        //查询所有
-        List<Article> articles = articleService.selectAll();
+
+        List<Article> articles;
+
+        if(boardId == null){
+            //查询所有
+            articles = articleService.selectAll();
+        }else {
+            articles = articleService.selectAllByBoard(boardId);
+        }
+
         if(articles == null){
             //非空判断,如果为空,创建一个空集合
             articles = new ArrayList<>();
