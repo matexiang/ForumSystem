@@ -2,6 +2,7 @@ package com.lxy.forum.dao;
 
 import com.lxy.forum.model.Article;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -25,4 +26,16 @@ public interface ArticleMapper {
      * @return
      */
     List<Article> selectAll();
+
+    List<Article> selectAllByBoard(Long boardId);
+
+    /**
+     * 根据帖子id查询详情
+     * @param id
+     * @return
+     */
+    Article selectDetailById(@Param("id") Long id);
+
+
+
 }
