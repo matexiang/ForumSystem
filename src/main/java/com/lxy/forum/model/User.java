@@ -1,6 +1,7 @@
 package com.lxy.forum.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -31,6 +32,7 @@ public class User {
     private String salt;
 
     @ApiModelProperty("头像地址")
+    @JsonInclude(JsonInclude.Include.ALWAYS)//强制参与json序列化
     private String avatarUrl;
 
     @ApiModelProperty("发帖数量")
