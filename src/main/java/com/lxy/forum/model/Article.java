@@ -29,6 +29,11 @@ public class Article {
 
     private String content;
 
+    //关联对象-作者
+    private User user;
+
+    private Board board;
+
 
 
 }
