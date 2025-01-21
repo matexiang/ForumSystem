@@ -1,5 +1,7 @@
 package com.lxy.forum.model;
 
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiOperation;
 import lombok.Data;
 
 import java.util.Date;
@@ -28,6 +30,9 @@ public class Article {
     private Date updateTime;
 
     private String content;
+
+    @ApiModelProperty("是否作者")
+    private boolean isOwn;
 
     //关联对象-作者
     private User user;
