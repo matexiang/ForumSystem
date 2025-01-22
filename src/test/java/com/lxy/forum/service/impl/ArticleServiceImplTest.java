@@ -7,6 +7,7 @@ import com.lxy.forum.service.IArticleService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -50,6 +51,7 @@ class ArticleServiceImplTest {
     }
 
     @Test
+    @Transactional
     void modify() {
 
         articleService.modify(1l,"牛马","测试内容修改");
@@ -64,9 +66,25 @@ class ArticleServiceImplTest {
     }
 
     @Test
+    @Transactional
     void thumbsUpById() {
         articleService.thumbsUpById(2l);
         System.out.println("点赞成功!!!");
 
+    }
+
+    @Test
+    @Transactional
+    void deleteById() {
+        articleService.deleteById(4l);
+        System.out.println("成功!!!!");
+
+    }
+
+    @Test
+    @Transactional
+    void addOneReplyCountById() {
+        articleService.addOneReplyCountById(2l);
+        System.out.println("成功");
     }
 }
