@@ -138,6 +138,46 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
+    public void subOneArticleCountById(Long id) {
+
+        if(id == null || id <= 0){
+
+            log.warn(ResultCode.FAILED_BOARD_ARTICLE_COUNT.toString());
+
+            //抛出异常
+            throw new ApplicationException(AppResult.failed(ResultCode.FAILED_BOARD_ARTICLE_COUNT));
+
+        }
+        //查询用户信息
+        User user = userMapper.selectByPrimaryKey(id);
+        if(user == null){
+            log.warn(ResultCode.ERROR_IS_NULL.toString()+ ", user id = " + id);
+
+            throw new ApplicationException(AppResult.failed(ResultCode.ERROR_IS_NULL));
+
+        }
+        //更新用户发帖数量
+        User updateUser = new User();
+        updateUser.setId(user.getId());
+        updateUser.setArticleCount(user.getArticleCount()-1);
+
+        //判断减一后是否小于0
+        if(updateUser.getArticleCount() < 0){
+            updateUser.setArticleCount(0);
+        }
+
+        //更新数据库
+        int row = userMapper.updateByPrimaryKeySelective(updateUser);
+        if(row != 1){
+            log.warn(ResultCode.FAILED.toString()+ " , 受影响的行数不等于 1");
+
+            throw  new ApplicationException(AppResult.failed(ResultCode.FAILED));
+        }
+
+
+    }
+
+    @Override
     public void addOneArticleCountById(Long id) {
         if(id == null || id <= 0){
 
