@@ -63,4 +63,16 @@ class UserServiceImplTest {
     }
 
 
+    @Test
+    @Transactional//执行网测试方法回滚数据库操作
+    void addOneArticleCountById() {
+        userService.addOneArticleCountById(1L);
+        System.out.println("更新成功");
+    }
+
+    @Test
+    void subOneArticleCountById() {
+        userService.subOneArticleCountById(3l);
+        System.out.println("成功!!!");
+    }
 }
