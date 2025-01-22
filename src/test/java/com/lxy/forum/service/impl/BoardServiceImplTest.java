@@ -31,4 +31,13 @@ class BoardServiceImplTest {
         bordService.addOneArticleCountById(1L);
         System.out.println("更新成功");
     }
+
+    @Test
+    @Transactional
+    void subOneArticleCountById() {
+        bordService.subOneArticleCountById(5l);
+        System.out.println("成功!!!");
+
+
+    }
 }
