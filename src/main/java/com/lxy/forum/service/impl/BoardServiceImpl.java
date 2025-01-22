@@ -55,6 +55,49 @@ public class BoardServiceImpl implements IBoardService {
     }
 
     @Override
+    public void subOneArticleCountById(Long id) {
+
+        if(id == null || id <= 0){
+
+            log.warn(ResultCode.FAILED_BOARD_ARTICLE_COUNT.toString());
+
+            //抛出异常
+            throw new ApplicationException(AppResult.failed(ResultCode.FAILED_BOARD_ARTICLE_COUNT));
+
+        }
+
+        //查询板块信息
+        Board board = boardMapper.selectByPrimaryKey(id);
+        if(board == null){
+            log.warn(ResultCode.FAILED_BOARD_NOT_EXISTS.toString() + ", board id = " + id);
+
+            throw new ApplicationException(AppResult.failed(ResultCode.FAILED_BOARD_NOT_EXISTS));
+        }
+
+        //构造更新对象
+        Board updateBoard = new Board();
+        updateBoard.setId(board.getId());
+        updateBoard.setArticleCount(board.getArticleCount()-1);
+        //判断减1之后是否小于0
+        if(updateBoard.getArticleCount() < 0){
+            //如果小于0,就设置为0
+            updateBoard.setArticleCount(0);
+
+        }
+
+        //调用DAO
+        int row = boardMapper.updateByPrimaryKeySelective(updateBoard);
+
+        if(row != 1){
+            log.warn(ResultCode.FAILED.toString()+ ",受影响行数不等于1");
+
+            throw  new ApplicationException(AppResult.failed(ResultCode.FAILED));
+        }
+
+
+    }
+
+    @Override
     public void addOneArticleCountById(Long id) {
 
         if(id == null || id <= 0){
