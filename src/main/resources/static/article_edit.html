@@ -31,7 +31,7 @@
 
             <!-- 标题 -->
             <div class="row">
-              
+
               <div class="col-2">
                 <h2 class="mb-4">标题</h2>
               </div>
@@ -87,75 +87,151 @@
     // ========================== 获取帖子详情 ========================== 
     // 成功后，设置ID,版块名，标题，并初始编辑区同时设置正文initEditor(edit_article.content);
     $.ajax({
+      type: 'get',
+      url: 'article/details?id=' + currentArticle.id,
+      //回调
+      success: function (respData) {
+        if (respData.code == 0) {
+          let article = respData.data;
+
+          $('#edit_article_id').val(article.id);
+
+          $('#edit_article_board_name').html(article.board.name);
+
+          $('#edit_article_title').val(article.title);
+
+          initEditor(article.content);
+
+        } else {
+          $.toast({
+            heading: '警告',
+            text: respData.message,
+            icon: 'warning'
+          });
+
+
+        }
+      },
+      error: function () {
+        $.toast({
+          heading: '错误',
+          text: '访问出错,请联系作者',
+          icon: 'error'
+        });
+      }
 
     });
-    
+
     // ========================== 初始化编辑器 ========================== 
     var editor;
-    function initEditor (md) {
+    function initEditor(md) {
       console.log('编辑区内容：' + md);
       editor = editormd("edit_article_content_area", {
-      width: "100%",
-      height: "100%",
-      // theme : "dark",
-      // previewTheme : "dark",
-      // editorTheme : "pastel-on-dark",
-      codeFold: true,
-      markdown : md, // 处理编辑区内容
-      //syncScrolling : false,
-      saveHTMLToTextarea: true,    // 保存 HTML 到 Textarea
-      searchReplace: true,
-      watch : true,                    // 实时预览
-      htmlDecode: "style,script,iframe|on*",            // 开启 HTML 标签解析，为了安全性，默认不开启    
-      // toolbar  : false,             //关闭工具栏
-      // previewCodeHighlight : false, // 关闭预览 HTML 的代码块高亮，默认开启
-      emoji: true,
-      taskList: true,
-      tocm: true,         // Using [TOCM]
-      tex: true,                     // 开启科学公式TeX语言支持，默认关闭
-      // flowChart: true,               // 开启流程图支持，默认关闭
-      // sequenceDiagram: true,         // 开启时序/序列图支持，默认关闭,
-      placeholder: '开始创作...',     // 占位符
-      path: "./dist/editor.md/lib/"
-    });
+        width: "100%",
+        height: "100%",
+        // theme : "dark",
+        // previewTheme : "dark",
+        // editorTheme : "pastel-on-dark",
+        codeFold: true,
+        markdown: md, // 处理编辑区内容
+        //syncScrolling : false,
+        saveHTMLToTextarea: true,    // 保存 HTML 到 Textarea
+        searchReplace: true,
+        watch: true,                    // 实时预览
+        htmlDecode: "style,script,iframe|on*",            // 开启 HTML 标签解析，为了安全性，默认不开启    
+        // toolbar  : false,             //关闭工具栏
+        // previewCodeHighlight : false, // 关闭预览 HTML 的代码块高亮，默认开启
+        emoji: true,
+        taskList: true,
+        tocm: true,         // Using [TOCM]
+        tex: true,                     // 开启科学公式TeX语言支持，默认关闭
+        // flowChart: true,               // 开启流程图支持，默认关闭
+        // sequenceDiagram: true,         // 开启时序/序列图支持，默认关闭,
+        placeholder: '开始创作...',     // 占位符
+        path: "./dist/editor.md/lib/"
+      });
     }
 
     // ========================== 处理提交修改事件 ========================== 
     $('#edit_article_submit').click(function () {
-        // ID
-        let articleIdEl = $('#edit_article_id');
-        let articleTitleEl = $('#edit_article_title');
-        if (!articleTitleEl.val()) {
-          articleTitleEl.focus();
-          // 提示
-          $.toast({
-              heading: '提示',
-              text: '请输入帖子标题',
-              icon: 'warning'
-          });
-          return;
-        }
-        // content
-        let articleContentEl = $('#edit_article_content');
-        // 非空校验
-        if (!articleContentEl.val()) {
-          // 提示
-          $.toast({
-              heading: '提示',
-              text: '请输入帖子内容',
-              icon: 'warning'
-          });
-          return;
+      // ID
+      let articleIdEl = $('#edit_article_id');
+      if (!articleIdEl.val()) {
+        $.toast({
+          heading: '提示',
+          text: '帖子状态异常',
+          icon: 'warning'
+        });
+      }
+      let articleTitleEl = $('#edit_article_title');
+      if (!articleTitleEl.val()) {
+        articleTitleEl.focus();
+        // 提示
+        $.toast({
+          heading: '提示',
+          text: '请输入帖子标题',
+          icon: 'warning'
+        });
+        return;
+      }
+      // content
+      let articleContentEl = $('#edit_article_content');
+      // 非空校验
+      if (!articleContentEl.val()) {
+        // 提示
+        $.toast({
+          heading: '提示',
+          text: '请输入帖子内容',
+          icon: 'warning'
+        });
+        return;
       }
 
-        // 构造修改对象
+      // 构造修改对象
+      let postData = {
+        id: articleIdEl.val(),
+        title: articleTitleEl.val(),
+        content: articleContentEl.val()
+      };
 
-        // 发送修改请求, 成功后跳转至首页changeNavActive($('#nav_board_index'));
-        $.ajax({
+      // 发送修改请求, 成功后跳转至首页changeNavActive($('#nav_board_index'));
+      $.ajax({
+        type: 'post',
+        url: 'article/modify',
+        contentType: 'application/x-www-form-urlencoded',
+        data: postData,
+        success: function (respData) {
+          if (respData.code == 0) {
+            $.toast({
+              heading: '成功',
+              text: '修改成功',
+              icon: 'success'
+            });
 
-        });
+            changeNavActive($('#nav_board_index'));
+
+          } else {
+            $.toast({
+              heading: '警告',
+              text: respData.message,
+              icon: 'warning'
+            });
+
+          }
+        },
+        error: function () {
+          $.toast({
+            heading: '错误',
+            text: '访问出错,请联系作者',
+            icon: 'error'
+          });
+        }
+
+
+
+      });
     });
-    
+
   });
 
 </script>
