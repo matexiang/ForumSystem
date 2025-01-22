@@ -16,4 +16,16 @@ public interface IUserService {
 
     //根据id查询用户信息
     User selectById(Long id);
+
+    //更新当前用户发帖数 +1
+    void addOneArticleCountById(Long id);
+
+
+    /**
+     * 用户发帖数-1
+     * @param id
+     */
+    void subOneArticleCountById (Long id);
+
+
 }
