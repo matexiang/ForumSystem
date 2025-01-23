@@ -37,3 +37,9 @@ mvc:
   pathmatch:
    matching-strategy: ANT_PATH_MATCHER #Springfox-Swagger兼容性配置
 
+# 拦截器配置返回登录页面
+forum:
+  login:
+    url: sign-in.html #未登录状态强制跳转
+  index:   #首页配置节点
+    board-num: 9  #首页板块个数
