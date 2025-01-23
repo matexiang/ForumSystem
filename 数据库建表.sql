@@ -67,7 +67,7 @@ CREATE TABLE t_article_reply(
 		articleId bigint not null comment '关联帖子编号',
 		postUserId bigint not null comment '楼主用户，关联用户编号',
 		replyId bigint not null comment '关联回复编号，支持楼中楼',
-		replyUserId bigint not null comment '楼主下的回复用户编号，支持楼中楼',
+		replyUserId bigint comment '楼主下的回复用户编号，支持楼中楼',
 		content VARCHAR(500) not null comment '回帖内容',
 		likeCount int not null DEFAULT 0 comment '点赞数',
 		state tinyint not null DEFAULT 0 comment '状态0正常，1禁言',
