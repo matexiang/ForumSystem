@@ -15,4 +15,10 @@ public interface IBoardService {
 
     //更新板块中帖子数量
     void addOneArticleCountById(Long id);
+
+    /**
+     * 板块帖子数-1
+     * @param id
+     */
+    void subOneArticleCountById (Long id);
 }
