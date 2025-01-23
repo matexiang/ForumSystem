@@ -29,6 +29,48 @@ public interface IArticleService {
      */
     Article selectDetailById( Long id);
 
+    /**
+     * 根据帖子id查询记录
+     * @param id
+     * @return
+     */
+    Article selectById(Long id);
+
+    /**
+     * 编辑帖子
+     * @param id
+     * @param title
+     * @param content
+     */
+    public void modify (Long id,String title, String content);
+
+
+    /**
+     * 点赞帖子
+     * @param id 帖子id
+     */
+    void thumbsUpById(Long id);
+
+
+    /**
+     * 根据Id删除帖子
+     * @param id
+     */
+    @Transactional //事务
+    void deleteById (Long id);
+
+
+    /**
+     * 文章回复数量+1
+     * @param id
+     */
+    @Transactional //事务
+    void addOneReplyCountById (Long id);
+
+
+
+
+
 
 
 
