@@ -362,8 +362,35 @@
     // ========================= 获取版块信息 =======================
     // 成功后，调用buildTopBoard()方法，构建版块列表
     $.ajax({
-      
+      type: 'get',
+      url: 'board/toplist',
+      success : function (respData) {
+        if(respData.code == 0){
+          buildTopBoard(respData.data);
+
+        }else{
+          $.toast({
+            heading: '警告',
+            text: respData.message,
+          icon: 'warning'
+          });
+        }
+      },
+      error: function(){
+        $.toast({
+            heading: '错误',
+            text: '访问出错,请联系作者',
+          icon: 'error'
+        });
+
+      }
     });
+    
+
+
+
+      
+    
 
     //========================= 构造首页版块=======================
     // 构造首页版块
