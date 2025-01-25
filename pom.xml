@@ -50,6 +50,10 @@
 
 	</properties>
 	<dependencies>
+
+
+
+
 		<!-- 编码解码加密⼯具包-->
 		<dependency>
 			<groupId>commons-codec</groupId>
