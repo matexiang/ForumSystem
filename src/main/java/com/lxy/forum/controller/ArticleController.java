@@ -15,6 +15,7 @@ import io.swagger.annotations.ApiParam;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -209,6 +210,23 @@ public class ArticleController {
         articleService.deleteById(id);
 
         return AppResult.success();
+    }
+
+    @ApiOperation("获取用户的帖子列表")
+    @GetMapping("/getAllByUserId")
+    public AppResult<List<Article>> getAllByUserId ( HttpServletRequest request,@ApiParam("用户id") @RequestParam(value = "userId",required = false) Long userId){
+
+        if(userId == null){
+            HttpSession session = request.getSession(false);
+
+            User user =(User) session.getAttribute(AppConfig.USER_SESSION);
+            userId = user.getId();
+        }
+        //调用Service
+        List<Article> articles = articleService.selectByUserId(userId);
+
+        return AppResult.success(articles);
+
     }
 
 
