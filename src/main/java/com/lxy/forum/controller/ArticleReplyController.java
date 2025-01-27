@@ -15,12 +15,14 @@ import io.swagger.annotations.ApiParam;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Slf4j
 @Api(tags = "回复接口")
@@ -70,6 +72,23 @@ public class ArticleReplyController {
         articleReplyService.create(articleReply);
 
         return AppResult.success();
+    }
+
+    @ApiOperation("获取回复列表")
+    @GetMapping("/getReplies")
+    public AppResult<List<ArticleReply>> getRepliesByArticleId(@ApiParam("帖子id") @RequestParam("articleId") @NonNull Long articleId ){
+          Article article = articleService.selectById(articleId);
+
+          if(article == null || article.getDeleteState() == 1){
+
+              return AppResult.failed(ResultCode.FAILED_ARTICLE_NOT_EXISTS);
+          }
+          //调用Service
+        List<ArticleReply> articleReplies = articleReplyService.selectByArticleId(articleId);
+
+        return AppResult.success(articleReplies);
+
+
     }
 
 }
