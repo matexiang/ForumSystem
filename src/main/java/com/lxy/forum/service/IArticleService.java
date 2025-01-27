@@ -27,7 +27,13 @@ public interface IArticleService {
      * @param id
      * @return
      */
+
     Article selectDetailById( Long id);
+
+    /*
+     *根据用户id查询用户列表
+     *  */
+    List<Article> selectByUserId(Long userId);
 
     /**
      * 根据帖子id查询记录
@@ -64,8 +70,9 @@ public interface IArticleService {
      * 文章回复数量+1
      * @param id
      */
-    @Transactional //事务
     void addOneReplyCountById (Long id);
+
+
 
 
 
