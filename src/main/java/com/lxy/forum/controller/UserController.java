@@ -171,7 +171,13 @@ public class UserController {
         updateUser.setPhoneNum(phoneNum);
         updateUser.setRemark(remark);
 
+        //调用service方法,修改
         userService.modifyInfo(updateUser);
+
+        //修改完后查询
+        user = userService.selectById(user.getId());
+        //把查询的最新的信息放到session中
+        session.setAttribute(AppConfig.USER_SESSION,user);
 
         return AppResult.success();
 
