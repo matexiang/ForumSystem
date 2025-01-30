@@ -27,5 +27,11 @@ public interface IUserService {
      */
     void subOneArticleCountById (Long id);
 
+    /**
+     * 修改个人信息
+     * @param user
+     */
+    void modifyInfo(User user);
+
 
 }
