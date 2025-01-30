@@ -75,4 +75,18 @@ class UserServiceImplTest {
         userService.subOneArticleCountById(3l);
         System.out.println("成功!!!");
     }
+
+    @Test
+@Transactional
+    void modifyInfo() {
+        User user = new User();
+        user.setUsername("4");
+        user.setId(8l);
+        user.setGender((byte)0);
+        user.setNickname("lixiangyang");
+        user.setEmail("444@qq.com");
+        user.setRemark("ceshi1");
+        user.setPhoneNum("34324343");
+        userService.modifyInfo(user);
+    }
 }
