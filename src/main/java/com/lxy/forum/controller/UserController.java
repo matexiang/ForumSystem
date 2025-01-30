@@ -6,6 +6,7 @@ import com.lxy.forum.config.AppConfig;
 import com.lxy.forum.model.User;
 import com.lxy.forum.service.IUserService;
 import com.lxy.forum.utils.MD5Util;
+import com.lxy.forum.utils.StringUtil;
 import com.lxy.forum.utils.UUIDUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -13,6 +14,7 @@ import io.swagger.annotations.ApiParam;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,7 +33,7 @@ public class UserController {
     private IUserService userService;
     //用户注册
     @ApiOperation("用户注册")
-    @RequestMapping("/register")
+    @PostMapping("/register")
     public AppResult register (@ApiParam("用户名") @RequestParam("username") @NonNull String username,
                                @ApiParam("昵称") @RequestParam("nickname") @NonNull String nickname,
                                @ApiParam("密码") @RequestParam("password") @NonNull String password,
@@ -66,7 +68,7 @@ public class UserController {
     //用户登录
 
     @ApiOperation("用户登录")
-    @RequestMapping("/login")
+    @PostMapping("/login")
     public AppResult login (HttpServletRequest request,
                             @ApiParam("用户名") @RequestParam("username") @NonNull String username,
                             @ApiParam("密码") @RequestParam("password") @NonNull String password){
@@ -128,4 +130,52 @@ public class UserController {
 
         return AppResult.success("退出成功");
     }
+
+    /**
+     *
+     * @param username
+     * @param nickname
+     * @param gender
+     * @param email
+     * @param phoneNum
+     * @param remark
+     * @return AppResult
+     */
+    @ApiOperation("修改个人信息")
+    @PostMapping("/modifyInfo")
+    public AppResult modifyInfo (HttpServletRequest request,
+                                 @ApiParam("用户名") @RequestParam(value = "username", required = false) String username,
+                                 @ApiParam("昵称") @RequestParam(value = "nickname", required = false) String nickname,
+                                 @ApiParam("性别") @RequestParam(value = "gender", required = false) Byte gender,
+                                 @ApiParam("邮箱") @RequestParam(value = "email", required = false) String email,
+                                 @ApiParam("电话号") @RequestParam(value = "phoneNum", required = false)String phoneNum,
+                                 @ApiParam("个人简介") @RequestParam(value = "remark", required = false) String remark){
+
+        if (StringUtil.isEmpty(nickname) &&
+                StringUtil.isEmpty(email) &&
+                StringUtil.isEmpty(username) &&
+                StringUtil.isEmpty(phoneNum) &&
+                StringUtil.isEmpty(remark) &&
+                gender == null) {
+            return AppResult.failed("请输入要修改的内容");
+        }
+        HttpSession session = request.getSession(false);
+        User user = (User)session.getAttribute(AppConfig.USER_SESSION);
+
+        User updateUser = new User();
+        updateUser.setId(user.getId());
+        updateUser.setUsername(username);
+        updateUser.setNickname(nickname);
+        updateUser.setGender(gender);
+        updateUser.setEmail(email);
+        updateUser.setPhoneNum(phoneNum);
+        updateUser.setRemark(remark);
+
+        userService.modifyInfo(updateUser);
+
+        return AppResult.success();
+
+    }
+
+
 }
