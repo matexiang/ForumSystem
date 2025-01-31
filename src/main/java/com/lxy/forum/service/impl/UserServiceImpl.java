@@ -8,6 +8,7 @@ import com.lxy.forum.model.User;
 import com.lxy.forum.service.IUserService;
 import com.lxy.forum.utils.MD5Util;
 import com.lxy.forum.utils.StringUtil;
+import com.lxy.forum.utils.UUIDUtil;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -287,6 +288,61 @@ public class UserServiceImpl implements IUserService {
 
         if (row != 1) {
             log.warn(ResultCode.FAILED.toString()+", 受影响行数不等于1");
+
+            throw new ApplicationException(AppResult.failed(ResultCode.FAILED));
+        }
+
+
+    }
+
+    @Override
+    public void modifyPassword(Long id, String newPassword, String oldPassword) {
+        if(id == null || id <= 0 || StringUtil.isEmpty(newPassword )
+        || StringUtil.isEmpty(oldPassword)){
+            log.warn(ResultCode.FAILED_PARAMS_VALIDATE.toString());
+
+            //抛出异常
+            throw new ApplicationException(AppResult.failed(ResultCode.FAILED_PARAMS_VALIDATE));
+
+        }
+        //查询要修改的用户信息
+        User user = userMapper.selectByPrimaryKey(id);
+        //校验用户是否存在
+        if (user == null || user.getDeleteState() == 1) {
+
+            log.warn(ResultCode.FAILED_USER_NOT_EXISTS.toString());
+
+            //抛出异常
+            throw new ApplicationException(AppResult.failed(ResultCode.FAILED_USER_NOT_EXISTS));
+        }
+        //校验老密码是否正确
+        //对老密码进行加密,获取密文
+        String oldEncryptPassword = MD5Util.md5Salt(oldPassword,user.getSalt());
+        //与用户当前密码进行比较
+        if(!oldEncryptPassword.equalsIgnoreCase(user.getPassword())){
+            log.warn(ResultCode.FAILED.toString()+"原密码错误!");
+
+            throw new ApplicationException(AppResult.failed(ResultCode.FAILED));
+        }
+
+        //生成一个新的盐
+        String salt = UUIDUtil.UUID32();
+
+        //生成新密码的密文
+        String encryptPassword = MD5Util.md5Salt(newPassword,salt);
+
+        //构造要更新的对象
+        User updateUser = new User();
+        updateUser.setId(user.getId());
+        updateUser.setSalt(salt);
+        updateUser.setPassword(encryptPassword);
+        Date date = new Date();
+        updateUser.setUpdateTime(date);
+
+        //调用dao
+        int row = userMapper.updateByPrimaryKeySelective(updateUser);
+        if (row != 1) {
+            log.warn(ResultCode.FAILED.toString());
 
             throw new ApplicationException(AppResult.failed(ResultCode.FAILED));
         }
