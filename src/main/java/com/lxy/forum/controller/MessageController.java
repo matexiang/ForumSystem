@@ -146,7 +146,7 @@ public class MessageController {
         //构造对象
         Message message = new Message();
         message.setPostUserId(user.getId());
-        message.setReceiveUserId(existsMessage.getReceiveUserId());
+        message.setReceiveUserId(existsMessage.getPostUserId());
         message.setContent(content);
 
         messageService.reply(repliedId,message);
