@@ -72,6 +72,7 @@ public class SwaggerConfig {
                 .build();
         return docket;
     }
+
     // 配置API基本信息
     private ApiInfo apiInfo() {
         ApiInfo apiInfo = new ApiInfoBuilder()
@@ -117,6 +118,7 @@ public class SwaggerConfig {
                 EndpointLinksResolver(allEndpoints, basePath),
                 shouldRegisterLinksMapping, null);
     }
+
     private boolean shouldRegisterLinksMapping(WebEndpointProperties
                                                        webEndpointProperties, Environment environment,
                                                String basePath) {
