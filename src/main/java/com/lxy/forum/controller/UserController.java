@@ -32,6 +32,7 @@ public class UserController {
     @Autowired
     private IUserService userService;
     //用户注册
+
     @ApiOperation("用户注册")
     @PostMapping("/register")
     public AppResult register (@ApiParam("用户名") @RequestParam("username") @NonNull String username,
@@ -141,6 +142,7 @@ public class UserController {
      * @param remark
      * @return AppResult
      */
+
     @ApiOperation("修改个人信息")
     @PostMapping("/modifyInfo")
     public AppResult modifyInfo (HttpServletRequest request,
@@ -191,6 +193,7 @@ public class UserController {
      * @param passwordRepeat
      * @return
      */
+
     @ApiOperation("修改密码")
     @PostMapping("/modifyPwd")
     public AppResult modifyPassword(HttpServletRequest request,
