@@ -5,7 +5,7 @@
   <resultMap id="AllInfoResultMap" type="com.lxy.forum.model.ArticleReply" extends="BaseResultMap">
 
     <!--关联的用户对象的映射-->
-    <association property="user" resultMap="com.lxy.forum.dao.UserMapper.BaseResultMap" columnPrefix="u-"/>
+    <association property="user" resultMap="com.lxy.forum.dao.UserMapper.BaseResultMap" columnPrefix="u_"/>
   </resultMap>
 
   <select id="selectByArticleId" parameterType="java.lang.Long" resultMap="AllInfoResultMap">
