@@ -40,6 +40,7 @@ public class ArticleController {
     private IBoardService boardService;
 
     //发布新帖子
+
     @ApiOperation("发布新贴")
     @RequestMapping("/create")
     public AppResult create(HttpServletRequest request,
@@ -77,6 +78,7 @@ public class ArticleController {
         return AppResult.success();
     }
 
+
     @ApiOperation("获取帖子列表")
     @RequestMapping("/getAllByBoardId")
     public AppResult<List<Article>> getAllByBoard(@ApiParam("板块Id") @RequestParam(value = "boardId", required = false) Long boardId){
@@ -99,6 +101,7 @@ public class ArticleController {
 
         return AppResult.success(articles);
     }
+
 
     @ApiOperation("根据帖子Id获取详情")
     @RequestMapping("/details")
@@ -124,6 +127,7 @@ public class ArticleController {
 
         return AppResult.success(article);
     }
+
     @ApiOperation("修改帖子")
     @RequestMapping("/modify")
     public AppResult modify (HttpServletRequest request,
@@ -164,6 +168,7 @@ public class ArticleController {
 
         return AppResult.success();
     }
+
 
     @ApiOperation("点赞")
     @RequestMapping("/thumbsUp")
